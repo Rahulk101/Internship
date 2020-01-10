@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -45,16 +49,21 @@ img {
 p{
   color:black;
   text-align:center;
+  font-size:175%;
+  text-shadow:2px 2px 2px rgb(147, 206, 230);
+}
+tfoot{
+  font-size:120%;
+  text-shadow:1px 1px 2px grey;
+  font-weight: bold;
 }
 </style>
-</head>
 <body style="background-color:white;">
 <div>
     <br>
 <img src="RAHUL1.jpg" height="200" width="150">
-<p style="font-size:175%;text-shadow:2px 2px 2px rgb(147, 206, 230)"><b><cite>RAHUL KUMAR</cite></b></p>
-<table id="t1">
-
+<p><b><cite>RAHUL KUMAR</cite></b></p>
+<table>
   <tr>
     <th><font size="5">Semester</font></th>
     <th><font size="5">SGPA</font></th>
@@ -83,8 +92,14 @@ p{
     <td><b>6</b></td>
     <td>8.04</td>
   </tr>
+<tfoot>
+  <tr>
+    <td>CGPA</td>
+    <td>8.04</td>
+  </tr>
+</tfoot>
+
 </table>
-<p style="font-size:150%;text-shadow:1px 1px 2px grey"><b>CGPA = 8.04</b></p>
 </div>
 </body>
 </html>
