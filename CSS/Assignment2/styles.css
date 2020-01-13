@@ -1,0 +1,94 @@
+h1{
+  color: black;
+  text-shadow:2px 2px 2px rgb(221, 216, 216);
+  margin-left: 30px;
+}
+input[type=text], input[type=number], select {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-style: outset;
+  box-shadow:0 1px 2px inset;
+}
+    label{
+    color:black;
+    text-align:left;
+    font-size:100%;
+    text-shadow:1px 1px 1px grey;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.form-control {
+  height: 28px;
+  padding: 2px 4px;
+  font-size: 14px;
+  background-color: #eee;
+  border-radius: 7px;
+  display:block;
+  width:20%;
+}
+#logo{
+  margin-left: 750px;
+  position: absolute;
+  margin-top: 70px;
+  height: 300px;
+  width:550px;
+}
+span{
+  color:red;
+  position: absolute;
+}
+#span1{
+  color:red;
+  position: absolute;
+  margin-left:60px;
+  margin-top:-20px;
+}
+#span2{
+  color:red;
+  position: absolute;
+  margin-left:40px;
+  margin-top:-20px;
+}
+#span3{
+  color:red;
+  position: absolute;
+  margin-left:65px;
+  margin-top:-20px;
+}
+button{
+  color:black;
+  background-color:rgb(241, 236, 236);
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 20px;
+  border-style: outset;
+  text-shadow: 1px 1px 2px rgb(71, 71, 71);
+}
+#maindiv{
+  border-radius: 5px;
+background-color: rgb(240, 246, 248);
+padding: 20px;
+border: 1px solid black;
+margin-left: 30px;
+margin-right: 450px;
+width: 650px;
+height:900px;
+box-shadow:13px 11px 12px grey;
+}
+#div1{
+  background-color: rgb(240, 246, 248);
+  position: absolute;
+  margin-top:-76px;
+  margin-left: 370px;
+}
+#div2{
+  background-color: rgb(240, 246, 248);
+  position: absolute;
+  margin-top:-104px;
+  margin-left: 370px;
+}
