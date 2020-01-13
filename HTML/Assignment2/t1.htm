@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+</head>
+<style>
+  input[type=text], input[type=number], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-style: outset;
+}
+div {
+    border-radius: 5px;
+  background-color: rgb(231, 244, 248);
+  padding: 20px;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-right: 450px;
+  width: 550px;
+  height:450px;
+  box-shadow:13px 11px 12px grey;
+}
+label{
+    color:black;
+    text-align:left;
+    font-size:100%;
+    text-shadow:1px 1px 1px grey;
+    letter-spacing: 1px;
+    font-weight: bold;}
+</style>
+<body>
+    <div>
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+        <label for="mname">Middle Name</label>
+        <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
+        </form>
+    </div>
+</body>
+</html>
