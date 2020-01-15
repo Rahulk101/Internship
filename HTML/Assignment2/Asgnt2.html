@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Page</title>
 </head>
 <style>
 
-input[type=text], input[type=number], select {
+input[type=text], input[type=number], input[type=email], input[type=password], input[type="date"], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -17,7 +18,7 @@ input[type=text], input[type=number], select {
   box-sizing: border-box;
   border-style: outset;
 }
-div {
+#div {
   border-radius: 5px;
   background-color: rgb(231, 244, 248);
   padding: 20px;
@@ -25,7 +26,7 @@ div {
   margin-left: 30px;
   margin-right: 450px;
   width: 550px;
-  height:1150px;
+  height:1200px;
   box-shadow:13px 11px 12px grey;
 }
 label{
@@ -58,11 +59,11 @@ label{
 
 <h1 style="color: black;text-shadow:2px 2px 2px rgb(142, 143, 240);margin-left: 30px;"><b>Registration Form:</b></h1>
 
-<div>
+<div id="div">
     <img id="banner" src="b1.jpg" alt="Banner">
   <form action="/action_page.php">
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="firstname" placeholder="Your first name..">
 
     <label for="mname">Middle Name</label>
     <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
@@ -71,17 +72,19 @@ label{
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
     <label for="email">Email id</label>
-    <input type="text" id="email" name="email" placeholder="Email..">
+    <input type="email" id="email" name="emailaddress" placeholder="Email..">
 
     <label for="password">Password</label>
-    <input type="text" id="password" name="password" placeholder="Password..">
+    <input type="password" id="password" name="password" placeholder="Password..">
 
     <label for="dob">D.O.B.</label>
-    <input type="text" id="dob" name="dob" placeholder="Date of birth..">
+    <input type="date" id="dob" name="dob" placeholder="Date of birth..">
 
-    <label for="gender">Gender<br></label>
-    <input type="radio" id="gender" name="gender">Male
-    <input type="radio" id="gender" name="gender">Female<br><br>
+    <label for="gender">Gender</label>
+    <br>
+    <input type="radio" id="gender" name="male">Male
+    <input type="radio" id="gender" name="female">Female
+    <br><br>
 
     <label for="current address">Current Address</label>
     <input type="text" id="current address" name="Current Address" placeholder="Current Address..">
@@ -92,22 +95,41 @@ label{
     <label for="city">City</label>
     <input type="text" id="city" name="City" placeholder="City..">
 
-    <label for="state">State</label>
-    <input type="text" id="state" name="State" placeholder="State..">
+    <!-- <label for="state">State</label>
+    <input type="text" id="state" name="State" placeholder="State.."> -->
 
-    <label for="country">Country</label>
-    <input type="text" id="country" name="Country" placeholder="Country..">
+    <label for="State">State</label>
+        <div style="display:block">
+            <select>
+                <option vlaue="state1">Odisha</option>
+                <option vlaue="state2">Jharkhand</option>
+                <option vlaue="state3">Bihar</option>
+            </select>
+        </div>
+
+    <!-- <label for="country">Country</label>
+    <input type="text" id="country" name="Country" placeholder="Country.."> -->
+
+    <label for="Country">Country</label>
+        <div style="display:block">
+            <select>
+                <option vlaue="Country1">India</option>
+                <option vlaue="Country2">China</option>
+                <option vlaue="Country3">USA</option>
+            </select>
+        </div>
 
     <label for="zipcode">Zipcode</label>
     <input type="number" id="zipcode" name="Zipcode" placeholder="Zipcode..">
 
-    <label>Pesonal Interest<br><br></label>
-    <input type="checkbox" name="interest1" value="Sports">Sports<br>
-    <input type="checkbox" name="interest2" value="Book">Book<br>
-    <input type="checkbox" name="interest3" value="Computer & Software">Computer & Software<br>
-    <input type="checkbox" name="interest4" value="Fashion">Fashion<br>
-    <input type="checkbox" name="interest5" value="Photography">Photography<br>
-    <input type="checkbox" name="interest6" value="Other">Other<br>
+    <label>Pesonal Interest</label>
+    <br><br>
+    <input type="checkbox" name="interest" value="Sports">Sports<br>
+    <input type="checkbox" name="interest" value="Book">Book<br>
+    <input type="checkbox" name="interest" value="Computer & Software">Computer & Software<br>
+    <input type="checkbox" name="interest" value="Fashion">Fashion<br>
+    <input type="checkbox" name="interest" value="Photography">Photography<br>
+    <input type="checkbox" name="interest" value="Other">Other<br>
   
     <button type="submit" value="submit" style="color:black;background-color:rgb(50, 230, 80);
     font-size: 16px;margin: 4px 2px;padding: 10px 20px;border-style: outset;text-shadow: 2px 2px 2px rgb(71, 71, 71);"><b>Submit</b></button>
