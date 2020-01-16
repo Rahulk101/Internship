@@ -94,4 +94,7 @@ box-shadow:13px 11px 12px grey;
 }
 .star::after{
   content: "*";
-  color:red;
+  color:red;}
+  .address{
+    height:70px;
+  }
