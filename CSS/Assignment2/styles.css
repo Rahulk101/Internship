@@ -16,8 +16,7 @@ input[type="text"], input[type="number"],input[type="password"], select {
 }
     label{
     color:black;
-    text-align:left;
-    font-size:100%;
+    text-align:left; 
     text-shadow:1px 1px 1px grey;
     letter-spacing: 1px;
     font-weight: bold;
@@ -41,24 +40,6 @@ input[type="text"], input[type="number"],input[type="password"], select {
 span{
   color:red;
   position: absolute;
-}
-#span1{
-  color:red;
-  position: absolute;
-  margin-left:60px;
-  margin-top:-20px;
-}
-#span2{
-  color:red;
-  position: absolute;
-  margin-left:40px;
-  margin-top:-20px;
-}
-#span3{
-  color:red;
-  position: absolute;
-  margin-left:65px;
-  margin-top:-20px;
 }
 button{
   color:black;
