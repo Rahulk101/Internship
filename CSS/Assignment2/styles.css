@@ -21,15 +21,7 @@ input[type="text"], input[type="number"],input[type="password"], select {
     letter-spacing: 1px;
     font-weight: bold;
 }
-.form-control {
-  height: 28px;
-  padding: 2px 4px;
-  font-size: 14px;
-  background-color: #eee;
-  border-radius: 7px;
-  display:block;
-  width:20%;
-}
+
 #logo{
   margin-left: 750px;
   position: absolute;
@@ -58,7 +50,7 @@ border: 1px solid black;
 margin-left: 30px;
 margin-right: 450px;
 width: 650px;
-height:900px;
+height:930px;
 box-shadow:13px 11px 12px grey;
 }
 #div1{
