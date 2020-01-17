@@ -29,7 +29,7 @@ input[type="text"], input[type="number"],input[type="password"], select {
   height: 300px;
   width:550px;
 }
-span{
+.span{
   color:red;
   position: absolute;
 }
@@ -53,7 +53,7 @@ width: 650px;
 height:930px;
 box-shadow:13px 11px 12px grey;
 }
-#div1{
+.div1{
   background-color: rgb(240, 246, 248);
   position: absolute;
   margin-top:-76px;
