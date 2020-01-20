@@ -103,11 +103,11 @@ function reg()
     {
         cityError.textContent="City required";
     }
-    if(state.value == "")
+    if(state.value == "Select")
     {
         stateError.textContent="State required";
     }
-    if(country.value == "")
+    if(country.value == "Select")
     {
         countryError.textContent="Country required";
     }
