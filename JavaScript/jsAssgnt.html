@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Registration Page</title>
+</head>
+<style>
+
+</style>
+
+<body onload="captchaGeneration()">
+    <img id="logo" src="mindfire.jpg" alt="Logo">
+
+    <h1><b>Registration Form:</b></h1>
+    <div id="maindiv">
+      <form name="Registration" method="post">
+        <label for="firstName" class="star">First Name</label>
+        <br>
+        <input type="text" id="firstName" name="firstName" placeholder="Your first name.."><span class="span" title="Required">*</span>
+        <div id="firstNameError" class="val_error"></div>
+
+        <div id="divOptional">
+            <label for="lastName">Last Name</label>
+            <br>
+            <input type="text" id="lastName" name="lastName" placeholder="Your last name.."><span class="span" title="Required">*</span>
+            <div id="lastNameError" class="val_error"></div>
+        </div>
+
+        <br><br>
+        <label for="email">Email id</label>
+        <br>
+        <input type="text" id="email" name="email" placeholder="Email.."><span class="span" title="Required">*</span>
+        <div id="emailError" class="val_error"></div>
+        <br><br>
+
+        <label for="password">Password</label>
+        <br>
+        <input type="password" id="password" name="password" placeholder="Password.."><span class="span" title="Required">*</span>
+        <div id="passwordError" class="val_error"></div>
+
+        <div id="divOptional">
+            <label for="confirmPassword">Confirm Password</label>
+            <br>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password.."><span class="span" title="Required">*</span>
+            <div id="confirmPasswordError" class="val_error"></div>
+        </div>
+
+        <br><br>
+        <label class="star" for="gender">Gender</label>
+        <br>
+        <input type="radio" id="gender" name="gender">Male
+        <input type="radio" id="gender" name="gender">Female
+        <input type="radio" id="gender" name="gender">Other
+        <div id="genderError" class="val_error"></div>
+        <br>
+
+        <br>
+        <label for="phone1">Phone1</label>
+        <br>
+        <input type="number" id="phone1" name="phone1" placeholder="Phone1.."><span class="span" title="Required">*</span>
+        <div id="phone1Error" class="val_error"></div>
+
+        <div id="divOptional">
+            <label for="phone2">Phone2</label>
+            <br>
+            <input type="number" id="phone2" name="phone2" placeholder="Phone2..">
+            <div id="phone2Error" class="val_error"></div>
+        </div>
+
+        <br><br>
+        <label for="address1">Address1</label>
+        <br>
+        <input class="address" type="text" id="address1" name="address1" placeholder="First Address.."><span class="span" title="Required">*</span>
+        <div id="address1Error" class="val_error"></div>
+
+        <div id="divAddress2">
+            <label for="address2">Address2</label>
+            <br>
+            <input class="address" type="text" id="address2" name="address2" placeholder="Second Address..">
+            <div id="address2Error" class="val_error"></div>
+        </div>
+
+        <br><br>
+        <label for="city">City</label>
+        <br>
+        <input type="text" id="city" name="city" placeholder="City.."><span class="span" title="Required">*</span>
+        <div id="cityError" class="val_error"></div>
+
+        <br><br>
+        <label for="state" class="star">State</label>
+        <br>
+        <div style="display:block">
+            <select id="state">
+                <option id="state" value="odisha">Odisha</option>
+                <option id="state" value="jharkhand">Jharkhand</option>
+                <option id="state" value="bihar">Bihar</option>
+            </select>
+            <div id="stateError" class="val_error"></div>
+        </div>
+        
+
+        <br>
+        <label for="country" class="star">Country</label>
+        <br>
+        <div style="display:block">
+            <select id="country">
+                <option id="country" value="India">India</option>
+                <option id="country" value="China">China</option>
+                <option id="country" value="USA">USA</option>
+            </select>
+            
+        </div>
+        <div id="countryError" class="val_error"></div>
+        <br>
+        <label for="news">Subscribe news letter?</label>
+        <br>
+        <input type="radio" id="news" name="news">yes
+        <input type="radio" id="news" name="news">No<br><br>
+        <div id="newsError" class="val_error"></div>
+
+        <h3 id="h3">Verify captcha to proceed.</h3>
+        <div class="divCaptcha">
+            <div class="captcha"><span id="number1"></span><span id="operator"></span><span id=number2></span></div>
+            <img id="captchaImage" src="captcha.png" alt="Refresh Captcha" onclick="captchaGeneration()">
+            <input type="text" id="answer" placeholder="Answer">
+            <div class="captchaButton">
+
+                <button id="verifyButton" onclick="captchaVerify(); return false;">Verify Captcha</button>
+            </div>
+            <p id="captchaMessage"></p>
+        </div>
+
+
+        <button type="button" onclick=" reg()" value="submit"><b>Submit</b></button>
+    </form>
+    </div>
+    <script type="text/javascript" src="jsAssgnt.js"></script>
+</body>
+</html>
