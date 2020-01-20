@@ -109,7 +109,7 @@ function reg()
     }
     if(country.value == "")
     {
-        countryError.textContent="Country required;
+        countryError.textContent="Country required";
     }
 
 }
