@@ -7,16 +7,13 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Registration Page</title>
 </head>
-<style>
-
-</style>
 
 <body>
     <img id="logo" src="mindfire.jpg" alt="Logo"> 
 
     <h1><b>Registration Form:</b></h1>
     <div id="maindiv">
-      <form action="/action_page.php">
+      <form>
         <label for="fname">First Name</label>
         <br>
         <input type="text" id="fname" name="firstname" placeholder="Your first name.."><span class="span" title="Required">*</span>
@@ -40,7 +37,7 @@
         <div class="div1">
             <label for="password">Confirm Password</label>
             <br>
-            <input type="password" id="password" name="Confirm Password" placeholder="Confirm Password.."><span class="span" title="Required">*</span class="span">
+            <input type="password" id="password" name="Confirm Password" placeholder="Confirm Password.."><span class="span" title="Required">*</span>
         </div>
 
         <br><br>
@@ -53,7 +50,7 @@
         <br>
         <label for="phone">Phone1</label>
         <br>
-        <input type="number" id="phone" name="Phone1" placeholder="Phone1.."><span class="span" title="Required">*</span class="span">
+        <input type="number" id="phone" name="Phone1" placeholder="Phone1.."><span class="span" title="Required">*</span>
 
         <div id="div1">
             <label for="phone2">Phone2</label>
@@ -62,9 +59,9 @@
         </div>
 
         <br><br>
-        <label for="address">Address1</label>
+        <label for="address1">Address1</label>
         <br>
-        <input class="address" type="text" id="address" name="Address1" placeholder="First Address.."><span class="span" title="Required">*</span class="span">
+        <input class="address" type="text" id="address1" name="Address1" placeholder="First Address.."><span class="span" title="Required">*</span>
 
         <div id="div2">
             <label for="address2">Address2</label>
@@ -75,13 +72,13 @@
         <br><br>
         <label for="city">City</label>
         <br>
-        <input type="text" id="city" name="City" placeholder="City.."><span class="span" title="Required">*</span class="span">
+        <input type="text" id="city" name="City" placeholder="City.."><span class="span" title="Required">*</span>
 
         <br><br>
         <label class="star" for="State">State</label>
         <br>
         <div style="display:block">
-            <select class="form-control"><span class="span" title="Required">*</span class="span">
+            <select><span class="span" title="Required">*</span>
                 <option vlaue="state">Odisha</option>
                 <option vlaue="state">Jharkhand</option>
                 <option vlaue="state">Bihar</option>
@@ -92,7 +89,7 @@
         <label class="star" for="Country">Country</label>
         <br>
         <div style="display:block">
-            <select class="form-control">
+            <select>
                 <option vlaue="country">India</option>
                 <option vlaue="country">China</option>
                 <option vlaue="country">USA</option>
@@ -104,7 +101,7 @@
         <input type="radio" id="option1" name="gender">yes
         <input type="radio" id="option2" name="gender">No<br><br>
 
-        <button type="submit" value="submit"><b>Submit</b></button>
+        <button type="button" value="submit"><b>Submit</b></button>
     </form>
     </div>
 </body>
