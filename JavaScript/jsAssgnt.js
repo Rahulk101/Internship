@@ -49,28 +49,24 @@ function reg()
     if((pattern.test(email.value) == false) && (email.value.length>0))
         {
             emailError.textContent="Provide valid Email id!";
-            //email.focus();
             //alert("Provide valid Email id!");
         }
 
     if((phone1.value.length!==10) && (phone1.value!==""))
         {
             phone1Error.textContent="Enter a 10 digit valid phone number!";
-            // phone1.focus();
             //alert("Enter a 10 digit valid phone number!");
         }
 
     if((password.value.length<8) && (password.value!==""))
         {
             passwordError.textContent="Password must be atleast 8 characters!";
-            // password.focus();
             //alert("Password must be atleast 8 characters!");
         }
 
     if(password.value!==confirmPassword.value && password.value!="")
         {
             confirmPasswordError.textContent="The two passwords doesn't match!";
-            // confirmPassword.focus();
             //alert("The two passwords doesn't match!");
         }
 
@@ -78,52 +74,42 @@ function reg()
     if(firstName.value == "")
     {
         firstNameError.textContent="First name required";
-        //firstName.focus();
     }
     if(lastName.value == "")
     {
         lastNameError.textContent="Last name required";
-        //lastName.focus();
     }
     if(email.value == "")
     {
         emailError.textContent="Email required";
-        //email.focus();
     }
     if(password.value == "")
     {
         passwordError.textContent="Password required";
-        //password.focus();
     }
     if(confirmPassword.value == "")
     {
         confirmPasswordError.textContent="Confirm your password";
-        //confirmPassword.focus();
     }
     if(phone1.value == "")
     {
         phone1Error.textContent="Phone1 required";
-        //phone1.focus();
     }
     if(address1.value == "")
     {
         address1Error.textContent="Address1 required";
-        //address1.focus();
     }
     if(city.value == "")
     {
         cityError.textContent="City required";
-        //city.focus();
     }
     if(state.value == "")
     {
         stateError.textContent="State required";
-        //state.focus();
     }
     if(country.value == "")
     {
-        countryError.textContent="Country required";
-        //country.focus();
+        countryError.textContent="Country required;
     }
 
 }
