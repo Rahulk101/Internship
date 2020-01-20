@@ -61,11 +61,11 @@
     box-shadow:13px 11px 12px grey;">
       <form action="/action_page.php">
         <label for="fname">First Name<br></label>
-        <input type="text" id="fname" name="firstname" placeholder="Your first name.."><span title="Required" style="color:red;position: absolute;">*</span>
+        <input type="text" id="fname" name="firstname" placeholder="Your first name.." required><span title="Required" style="color:red;position: absolute;">*</span>
 
         <div style="background-color: rgb(240, 246, 248);position: absolute;margin-top:-76px;margin-left: 370px;">
             <label for="lname">Last Name<br></label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name.."><span title="Required" style="color:red;position: absolute;">*</span>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required><span title="Required" style="color:red;position: absolute;">*</span>
         </div>
 
         <label for="email"><br><br>Email id<br></label>
@@ -83,7 +83,8 @@
         <label class="star" for="gender">Gender</label>
         <br>
         <input type="radio" id="gender" name="gender">Male
-        <input type="radio" id="gender" name="gender">Female<br>
+        <input type="radio" id="gender" name="gender">Female
+        <input type="radio" id="gender" name="gender">Other<br>
 
         <label for="phone"><br>Phone1<br></label>
         <input type="number" id="phone" name="Phone1" placeholder="Phone1.."><span title="Required" style="color:red;position: absolute;">*</span>
