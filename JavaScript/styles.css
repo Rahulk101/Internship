@@ -14,13 +14,23 @@ h1{
     border-style: outset;
     box-shadow:0 1px 2px inset;
   }
+  /* *{
+    font-size: 15px;
+  } */
       label{
       color:black;
-      text-align:left; 
+      /* text-align:left;  */
       text-shadow:1px 1px 1px grey;
       letter-spacing: 1px;
       font-weight: bold;
   }
+  #lblGender{
+    color:black;
+    /* text-align:left;*/
+    /* text-shadow:1px 1px grey;*/
+    letter-spacing: 1px;
+    font-weight:normal;
+}
   #logo{
     margin-left: 750px;
     position: absolute;
@@ -57,7 +67,7 @@ h1{
   height:1500px;
   box-shadow:13px 11px 12px grey;
   }
-  #divOptional{
+  .divOptional{
     background-color: rgb(240, 246, 248);
     position: absolute;
     margin-top:-76px;
