@@ -22,7 +22,7 @@
         <input type="text" id="firstName" name="firstName" placeholder="Your first name..">
         <div id="firstNameError" class="val_error"></div>
 
-        <div id="divOptional">
+        <div class="divOptional">
             <label for="lastName" class="star">Last Name</label>
             <br>
             <input type="text" id="lastName" name="lastName" placeholder="Your last name..">
@@ -41,7 +41,7 @@
         <input type="password" id="password" name="password" placeholder="Password..">
         <div id="passwordError" class="val_error"></div>
 
-        <div id="divOptional">
+        <div class="divOptional">
             <label for="confirmPassword" class="star">Confirm Password</label>
             <br>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password..">
@@ -49,11 +49,11 @@
         </div>
 
         <br><br>
-        <label class="star" for="gender">Gender</label>
+        <label class="star" id="gender" for="lblGender">Gender</label>
         <br>
-        <input type="radio" id="gender" name="gender">Male
-        <input type="radio" id="gender" name="gender">Female
-        <input type="radio" id="gender" name="gender">Other
+        <label id="lblGender"><input type="radio" id="gender1" name="gender">Male</label>
+        <label id="lblGender"><input type="radio" id="gender2" name="gender">Female</label>
+        <label id="lblGender"><input type="radio" id="gender3" name="gender">Other</label>
         <div id="genderError" class="val_error"></div>
         <br>
 
@@ -63,7 +63,7 @@
         <input type="number" id="phone1" name="phone1" placeholder="Phone1..">
         <div id="phone1Error" class="val_error"></div>
 
-        <div id="divOptional">
+        <div class="divOptional">
             <label for="phone2">Phone2</label>
             <br>
             <input type="number" id="phone2" name="phone2" placeholder="Phone2..">
@@ -94,10 +94,10 @@
         <br>
         <div style="display:block">
             <select id="state">
-                <option id="state" value="Select">Select</option>
-                <option id="state" value="odisha">Odisha</option>
-                <option id="state" value="jharkhand">Jharkhand</option>
-                <option id="state" value="bihar">Bihar</option>
+                <option value="Select">Select</option>
+                <option value="odisha">Odisha</option>
+                <option value="jharkhand">Jharkhand</option>
+                <option value="bihar">Bihar</option>
             </select>
             
         </div>
@@ -108,10 +108,10 @@
         <br>
         <div style="display:block">
             <select id="country">
-                <option id="country" value="Select">Select</option>
-                <option id="country" value="India">India</option>
-                <option id="country" value="China">China</option>
-                <option id="country" value="USA">USA</option>
+                <option value="Select">Select</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="USA">USA</option>
             </select>
             
         </div>
