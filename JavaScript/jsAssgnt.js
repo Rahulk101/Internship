@@ -5,18 +5,20 @@
     var password = document.forms["Registration"]["password"];
     var confirmPassword = document.forms["Registration"]["confirmPassword"];
     var phone1 = document.forms["Registration"]["phone1"];
-    var phone2 = document.forms["Registration"]["phone2"];  
+    var gender = document.forms["Registration"]["lblGender"];  
     var address1 =  document.forms["Registration"]["address1"];
     var city = document.forms["Registration"]["city"];
     var state = document.forms["Registration"]["state"];
     var country = document.forms["Registration"]["country"];
-     
 
+    var check=true;
+    
     var firstNameError=document.getElementById("firstNameError");
     var lastNameError=document.getElementById("lastNameError");
     var emailError=document.getElementById("emailError");
     var passwordError=document.getElementById("passwordError");
     var confirmPasswordError=document.getElementById("confirmPasswordError");
+    var genderError=document.getElementById("genderError");
     var phone1Error=document.getElementById("phone1Error");
     var address1Error=document.getElementById("address1Error");
     var cityError=document.getElementById("cityError");
@@ -30,7 +32,7 @@
     password.addEventListener('blur', passwordVerify, true);
     confirmPassword.addEventListener('blur', confirmPasswordVerify, true);
     phone1.addEventListener('blur', phone1Verify, true);
-    phone2.addEventListener('blur', phone2Verify, true);
+    gender.addEventListener('blur', genderVerify, true);
     address1.addEventListener('blur', address1Verify, true);
     state.addEventListener('blur', stateVerify, true);
     country.addEventListener('blur', countryVerify, true);
@@ -39,9 +41,11 @@
 function reg()                                    
 {
     if ((firstName.value == "") ||(lastName.value=="")||(email.value=="")||(password.value=="")||(confirmPassword.value=="")||
-    (phone1.value=="")||(phone2.value=="")||(address1.value=="")||(address2.value=="")||(city.value==""))                                  
+    (document.getElementById("lblGender").textContent=="")||(phone1.value=="")||(address1.value=="")||
+    (city.value=="")||(state.value=="")||(country.value==""))                                  
     { 
         window.alert("Please enter the data in the required feilds.");
+        check=false;
     }
 
 
@@ -49,24 +53,28 @@ function reg()
     if((pattern.test(email.value) == false) && (email.value.length>0))
         {
             emailError.textContent="Provide valid Email id!";
+            check=false;
             //alert("Provide valid Email id!");
         }
 
     if((phone1.value.length!==10) && (phone1.value!==""))
         {
             phone1Error.textContent="Enter a 10 digit valid phone number!";
+            check=false;
             //alert("Enter a 10 digit valid phone number!");
         }
 
     if((password.value.length<8) && (password.value!==""))
         {
             passwordError.textContent="Password must be atleast 8 characters!";
+            check=false;
             //alert("Password must be atleast 8 characters!");
         }
 
     if(password.value!==confirmPassword.value && password.value!="")
         {
             confirmPasswordError.textContent="The two passwords doesn't match!";
+            check=false;
             //alert("The two passwords doesn't match!");
         }
 
@@ -74,6 +82,7 @@ function reg()
     if(firstName.value == "")
     {
         firstNameError.textContent="First name required";
+        check=false;
     }
     if(lastName.value == "")
     {
@@ -90,6 +99,10 @@ function reg()
     if(confirmPassword.value == "")
     {
         confirmPasswordError.textContent="Confirm your password";
+    }
+    if(document.getElementById("lblGender").textContent=="")
+    {
+        genderError.textContent="Phone1 required";
     }
     if(phone1.value == "")
     {
@@ -197,12 +210,17 @@ function firstNameVerify(){
         firstNameError.innerHTML="";
         
     }
+    else{
+        firstNameError.innerHTML="First name required!";
+    }
 }
 function lastNameVerify(){
     if(lastName.value !=="")
     {
         lastNameError.innerHTML="";
-        
+    }
+    else{
+        lastNameError.innerHTML="Last name required!";
     }
 }
 function emailVerify(){
@@ -211,12 +229,22 @@ function emailVerify(){
         emailError.innerHTML="";
         
     }
+    else{
+        emailError.innerHTML="Email required!";
+    }
 }
 function passwordVerify(){
     if(password.value !=="")
     {
         passwordError.innerHTML="";
-        
+    }
+    else{
+        passwordError.innerHTML="Password required!";
+        confirmPasswordError.innerHTML="";
+    }
+    if((password.value.length<8) && (password.value !==""))
+    {
+        passwordError.innerHTML="Password must be atleast 8 characters!";
     }
 }
 function confirmPasswordVerify(){
@@ -225,46 +253,66 @@ function confirmPasswordVerify(){
         confirmPasswordError.innerHTML="";
         
     }
+    else if(password.value!=="")
+    {
+        confirmPasswordError.innerHTML="Confirm your password!";
+    }
+    if((password.value.length>7) && (confirmPassword!=""))
+    {
+        confirmPasswordError.innerHTML="The two passwords doesn't match!";
+    }
+}
+function genderVerify(){
+    if(document.getElementById("lblGender").textContent!=="")
+    {
+        genderError.innerHTML="";
+    }
+    else{
+        genderError.innerHTML="Gender required!";
+    }
 }
 function phone1Verify(){
     if(phone1.value !=="")
     {
         phone1Error.innerHTML="";
-        
     }
-}
-function phone2Verify(){
-    if(phone2.value !=="")
-    {
-        phone2Error.innerHTML="";
-        
+    else{
+        phone1Error.innerHTML="Phone1 required!";
     }
 }
 function address1Verify(){
     if(address1.value !=="")
     {
         address1Error.innerHTML="";
-        
+    }
+    else{
+        address1Error.innerHTML="Address1 required!";
     }
 }
 function cityVerify(){
     if(city.value !=="")
     {
         cityError.innerHTML="";
-        
+    }
+    else{
+        cityError.innerHTML="City required!";
     }
 }
 function stateVerify(){
     if(state.value !=="")
     {
         stateError.innerHTML="";
-        
+    }
+    else{
+        stateError.innerHTML="State required!";
     }
 }
 function countryVerify(){
     if(country.value !=="")
     {
         countryError.innerHTML="";
-        
+    }
+    else{
+        countryError.innerHTML="Country required!";
     }
 }
