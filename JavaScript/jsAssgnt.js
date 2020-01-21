@@ -41,8 +41,12 @@
 function reg()                                    
 {
     if ((firstName.value == "") ||(lastName.value=="")||(email.value=="")||(password.value=="")||(confirmPassword.value=="")||
+<<<<<<< HEAD
     (document.getElementById("lblGender").textContent=="")||(phone1.value=="")||(address1.value=="")||
     (city.value=="")||(state.value=="")||(country.value==""))                                  
+=======
+    (phone1.value=="")||(address1.value=="")||(city.value==""))                                  
+>>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
     { 
         window.alert("Please enter the data in the required feilds.");
         check=false;
@@ -240,11 +244,14 @@ function passwordVerify(){
     }
     else{
         passwordError.innerHTML="Password required!";
+<<<<<<< HEAD
         confirmPasswordError.innerHTML="";
     }
     if((password.value.length<8) && (password.value !==""))
     {
         passwordError.innerHTML="Password must be atleast 8 characters!";
+=======
+>>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
     }
 }
 function confirmPasswordVerify(){
@@ -253,6 +260,7 @@ function confirmPasswordVerify(){
         confirmPasswordError.innerHTML="";
         
     }
+<<<<<<< HEAD
     else if(password.value!=="")
     {
         confirmPasswordError.innerHTML="Confirm your password!";
@@ -269,6 +277,13 @@ function genderVerify(){
     }
     else{
         genderError.innerHTML="Gender required!";
+=======
+    else
+    {
+        if(password.value!==""){
+            confirmPasswordError.innerHTML="Confirm your password!";
+        }
+>>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
     }
 }
 function phone1Verify(){
