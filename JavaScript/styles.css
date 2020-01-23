@@ -1,43 +1,40 @@
-h1{
+#h1{
     color: black;
     text-shadow:2px 2px 2px rgb(221, 216, 216);
     margin-left: 30px;
+    position: absolute;
+    margin-top: auto;
   }
   input[type="text"], input[type="number"],input[type="password"], select {
     width: 250px;
-    padding: 12px 20px;
+    padding: 6px 5px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     border-style: outset;
+    height: 34px;
     box-shadow:0 1px 2px inset;
   }
   /* *{
     font-size: 15px;
   } */
-      label{
+      .label{
       color:black;
       /* text-align:left;  */
       text-shadow:1px 1px 1px grey;
       letter-spacing: 1px;
       font-weight: bold;
   }
-  #lblGender{
+  .lblRadio{
     color:black;
     /* text-align:left;*/
     /* text-shadow:1px 1px grey;*/
     letter-spacing: 1px;
     font-weight:normal;
 }
-  #logo{
-    margin-left: 750px;
-    position: absolute;
-    margin-top: 70px;
-    height: 300px;
-    width:550px;
-  }
+
   .span{
     color:red;
   }
@@ -58,19 +55,25 @@ h1{
   }
   #maindiv{
     border-radius: 5px;
-  background-color: rgb(240, 246, 248);
-  padding: 20px;
-  border: 1px solid black;
-  margin-left: 30px;
-  margin-right: 450px;
-  width: 650px;
-  height:1500px;
-  box-shadow:13px 11px 12px grey;
+    background-color: rgb(240, 246, 248);
+    padding: 20px;
+    border: 1px solid black;
+    margin-left: 30px;
+    margin-right: 450px;
+    margin-top: 45px;
+    position: absolute;
+    width: 650px;
+    height: 1350px;
+    box-shadow: 13px 11px 12px grey;
+  }
+  #form{
+    margin-left: -7px;
+    margin-top: -12px;
   }
   .divOptional{
     background-color: rgb(240, 246, 248);
     position: absolute;
-    margin-top:-76px;
+    margin-top:-68px;
     margin-left: 370px;
   }
   #divAddress2{
@@ -79,22 +82,30 @@ h1{
     margin-top:-104px;
     margin-left: 370px;
   }
+  #Image{
+    margin-left: 520px;
+    position: static;
+    top: px;
+    height: 80px;
+    width: 300px;
+  }
   .val_error{
     color:red;
   }
   .star::after{
     content: "*";
     color:red;}
-  .address{
+  #address1, #address2{
       height:70px;
     }
    .divCaptcha
   {
     border-radius: 5px;
     background-color: white;
-    padding: 20px;
+    padding: 8px;
     border: 1px solid black;
-    width:50%;
+    width: 45%;
+    height: 140px;
   }
   .captcha{
     border-radius: 5px;
