@@ -93,8 +93,9 @@
     color:red;
   }
   .star::after{
-    content: "*";
-    color:red;}
+    content:"*";
+    color:red;
+  }
   #address1, #address2{
       height:70px;
     }
@@ -120,6 +121,30 @@
     position: absolute;
     margin-left: 80px;
     margin-top:-40px;
+  }
+  .passwordHelper{
+    width:30px;
+    height:30px;
+    position: absolute;
+    margin-top: -74px;
+    margin-left: 90px;
+  }
+  .passwordPolicy{
+    /* display: none; */
+    visibility: hidden;
+    width: 420px;
+    background-color:rgb(105, 247, 92);
+    color: rgb(27, 24, 24);
+    text-align: center;
+    border-radius: 10px;
+    padding: 3px 2px;
+    position: absolute;
+    margin-top: -110px;
+    margin-left: 120px;
+  }
+  .passwordHelper:hover + .passwordPolicy{
+    /* display: block; */
+    visibility: visible;
   }
   #answer{
     width: 130px;

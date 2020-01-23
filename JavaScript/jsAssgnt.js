@@ -63,12 +63,18 @@ function reg()
             //alert("Enter a 10 digit valid phone number!");
         }
 
+    var passwordData=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)$/;
     if((password.value.length<8) && (password.value!==""))
         {
             passwordError.textContent="Password must be atleast 8 characters!";
             check=false;
             //alert("Password must be atleast 8 characters!");
         }
+    if(passwordData.test(password.value)==false)
+    {
+        passwordError.textContent="Enter a Strong password!";
+        check=false;
+    }
 
     if(password.value!==confirmPassword.value && password.value!="")
         {
