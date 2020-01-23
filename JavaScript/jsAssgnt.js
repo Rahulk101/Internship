@@ -32,7 +32,7 @@
     password.addEventListener('blur', passwordVerify, true);
     confirmPassword.addEventListener('blur', confirmPasswordVerify, true);
     phone1.addEventListener('blur', phone1Verify, true);
-    gender.addEventListener('blur', genderVerify, true);
+    // gender.addEventListener('blur', genderVerify, true);
     address1.addEventListener('blur', address1Verify, true);
     state.addEventListener('blur', stateVerify, true);
     country.addEventListener('blur', countryVerify, true);
@@ -41,15 +41,10 @@
 function reg()                                    
 {
     if ((firstName.value == "") ||(lastName.value=="")||(email.value=="")||(password.value=="")||(confirmPassword.value=="")||
-<<<<<<< HEAD
     (document.getElementById("lblGender").textContent=="")||(phone1.value=="")||(address1.value=="")||
     (city.value=="")||(state.value=="")||(country.value==""))                                  
-=======
-    (phone1.value=="")||(address1.value=="")||(city.value==""))                                  
->>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
     { 
         window.alert("Please enter the data in the required feilds.");
-        check=false;
     }
 
 
@@ -61,7 +56,7 @@ function reg()
             //alert("Provide valid Email id!");
         }
 
-    if((phone1.value.length!==10) && (phone1.value!==""))
+    if((phone1.value.length<10) && (phone1.value!==""))
         {
             phone1Error.textContent="Enter a 10 digit valid phone number!";
             check=false;
@@ -86,7 +81,6 @@ function reg()
     if(firstName.value == "")
     {
         firstNameError.textContent="First name required";
-        check=false;
     }
     if(lastName.value == "")
     {
@@ -241,49 +235,46 @@ function passwordVerify(){
     if(password.value !=="")
     {
         passwordError.innerHTML="";
+        check=true;
     }
     else{
         passwordError.innerHTML="Password required!";
-<<<<<<< HEAD
         confirmPasswordError.innerHTML="";
+        check=false;
     }
     if((password.value.length<8) && (password.value !==""))
     {
         passwordError.innerHTML="Password must be atleast 8 characters!";
-=======
->>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
+        check=false;
     }
 }
 function confirmPasswordVerify(){
     if(confirmPassword.value !=="")
     {
         confirmPasswordError.innerHTML="";
+        check=true;
         
     }
-<<<<<<< HEAD
     else if(password.value!=="")
     {
         confirmPasswordError.innerHTML="Confirm your password!";
+        check=false;
     }
     if((password.value.length>7) && (confirmPassword!=""))
     {
         confirmPasswordError.innerHTML="The two passwords doesn't match!";
+        check=false;
     }
 }
 function genderVerify(){
     if(document.getElementById("lblGender").textContent!=="")
     {
         genderError.innerHTML="";
+        check=true;
     }
     else{
         genderError.innerHTML="Gender required!";
-=======
-    else
-    {
-        if(password.value!==""){
-            confirmPasswordError.innerHTML="Confirm your password!";
-        }
->>>>>>> 9e0fc27a3ccef0110dd5a226a9a967ae3bbd1418
+        check=false;
     }
 }
 function phone1Verify(){
@@ -293,6 +284,7 @@ function phone1Verify(){
     }
     else{
         phone1Error.innerHTML="Phone1 required!";
+        check=false;
     }
 }
 function address1Verify(){
@@ -314,20 +306,27 @@ function cityVerify(){
     }
 }
 function stateVerify(){
-    if(state.value !=="")
+    if(state.value =="Select")
     {
-        stateError.innerHTML="";
+        stateError.innerHTML="State required!";
     }
     else{
-        stateError.innerHTML="State required!";
+        stateError.innerHTML="";
     }
 }
 function countryVerify(){
-    if(country.value !=="")
+    if(country.value =="Select")
     {
-        countryError.innerHTML="";
-    }
-    else{
         countryError.innerHTML="Country required!";
     }
+    else{
+        countryError.innerHTML="";
+    }
 }
+
+// checkAll()
+// {
+//     if(((firstName.value !== "") ||(lastName.value==!"")||(email.value==!"")||(password.value==!"")||
+//     (confirmPassword.value==!"")||(document.getElementById("lblGender").textContent==!"")||(phone1.value==!"")||
+//     (address1.value==!"")||(city.value==!"")||(state.value==!"")||(country.value==!"")))
+// }
