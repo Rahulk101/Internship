@@ -181,6 +181,9 @@ function captchaVerify()
         $("#captchaMessage").text("Correct!").css({color:'green'});
         checkAnswer=true;
     }
+    else{
+        checkAnswer=false;
+    }
 
 }
 
