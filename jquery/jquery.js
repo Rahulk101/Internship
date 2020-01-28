@@ -231,6 +231,8 @@ $(document).ready(function(){
             $("#genderError").text("Gender required!");
         }
         else{
+            if(($("input[type='radio']:checked").val()=="Male") || ($("input[type='radio']:checked").val()=="Female") ||
+            ($("input[type='radio']:checked").val()=="Other"))
             $("#genderError").text("");
         }
     }),
