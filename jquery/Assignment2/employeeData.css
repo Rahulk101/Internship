@@ -1,0 +1,77 @@
+#divAnimate{
+    background-color: rgba(67, 83, 224, 0.897);
+    border-radius: 15px;
+    padding: 8px;
+    width: 41%;
+    height: 110px;
+    box-shadow: 3px 5px 30px rgba(60, 74, 199, 0.897);
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-style: outset;
+    font-weight: 900;
+    position: absolute;
+    margin-left: 220px;
+    margin-top: -68px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 38px;
+  }
+#headingMessage{
+    font-size: 23px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 577px;
+    font-weight: 900;
+    text-align: center;
+}
+#divEmployeeMain{
+    border-radius: 5px;
+    background-color: rgb(240, 246, 248);
+    padding: 10px;
+    border: 1px solid black;
+    margin-left: 261px;
+    margin-right: 450px;
+    margin-top: 45px;
+    position: absolute;
+    width: 750px;
+    height: auto;
+    box-shadow: 3px 1px 20px grey;
+}
+.lblAttribute{
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size:20px;
+  }
+.lblData{
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size:17px;
+}
+.divData{
+    /* position:absolute; */
+    margin-left: 162px;
+    margin-top: -21px;
+}
+#formEmployeeSpacing{
+    margin:20px;
+}
+#divEmployeeLeft{
+      float:left;
+      width:45%;
+      margin-left: 40px;
+      margin-top: -18px;
+}
+#divEmployeeRight{
+    float:left;
+    width:45%;
+    margin-left: 10px;
+    margin-top: -20px;
+}
+.divEmployeeSpace{
+    margin-top: 35px;
+}
+.divEmployeeNews{
+    margin-left: 221px;
+    margin-top: -19px;
+}

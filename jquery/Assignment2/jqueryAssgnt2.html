@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="jquery2Styles.css">
+    <link rel="stylesheet" type="text/css" href="userImage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Registration Page</title>
 </head>
@@ -12,41 +13,55 @@
 
 </style>
 
-<body onload="captchaGeneration()">
+<body>
     <div ><img id="Image" src="mindfire.jpg" alt="Mindfire banner"></div>
+    <div class="fileUploadSection">
+        <div class="imageUploadWrapper">
+          <input class="fileUploadInput" type='file' onchange="readURL(this);" id="imageInput" accept="image/*" />
+          <div class="dragtext">
+            <h3>Select or drag image here</h3>
+          </div>
+        </div>
+        <div class="fileUploadSection-content">
+          <img class="fileUploadImage" src="#" alt="your image" />
+          <div class="imageTitle">
+            <button type="button" onclick="removeUpload()" class="removeImage">Reset <span class="image-title">Uploaded Image</span></button>
+          </div>
+        </div>
+    </div>
 
     <h1 id="heading"><b>Registration Form:</b></h1>
     <div id="divMain">
-        <form name="Registration" method="post">
+        <form name="Registration" method="post" action="file:///D:/Internship/jquery/Assignment2/employeeData.html">
             <div id="divWelcome">
                 Welcome!
             </div>
             <div id="divLeft">
-                <label for="firstName" class="star label">First Name</label>
+                <label id="lblfirst" for="firstName" class="star labelText">First Name</label>
                 <br>
-                <input class="input" type="text" id="firstName" name="firstName" placeholder="Your first name..">
+                <input class="inputField" type="text" id="firstName" name="firstName" placeholder="Your first name..">
                 <div id="firstNameError" class="val_error textError"></div>
 
                 <div class="divSpace"> 
-                    <label for="email" class="star label">Email id</label>
+                    <label for="email" class="star labelText">Email id</label>
                     <br>
-                    <input class="input" type="text" id="email" name="email" placeholder="Email..">
+                    <input class="inputField" type="text" id="email" name="email" placeholder="Email..">
                 </div>
                 <div id="emailError" class="val_error textError"></div>
 
                 <div class="divSpace"> 
-                    <label for="pan" class="star label">PAN Number</label>
+                    <label for="pan" class="star labelText">PAN Number</label>
                     <br>
-                    <input class="input" type="text" id="pan" name="pan" placeholder="PAN Number..">
+                    <input class="inputField" type="text" id="pan" name="pan" placeholder="PAN Number..">
                 </div>
                 <div id="panError" class="val_error textError"></div>
 
                 
 
                 <div class="divSpace">
-                    <label for="password" class="star label">Password</label>
+                    <label for="password" class="star labelText">Password</label>
                     <br>
-                    <input class="input" type="password" id="password" name="password" placeholder="Password..">
+                    <input class="inputField" type="password" id="password" name="password" placeholder="Password..">
                 </div>
                 <div id="passwordError" class="val_error textError"></div>
 
@@ -58,7 +73,7 @@
                 </div>
 
                 <div class="divSpace">
-                    <label class="star label" id="gender">Gender</label>
+                    <label class="star labelText" id="gender">Gender</label>
                     <br>
                     <label class="lblRadio"><input type="radio" id="gender1" value="Male" name="option">Male</label>
                     <label class="lblRadio"><input type="radio" id="gender2" value="Female" name="option">Female</label>
@@ -66,23 +81,23 @@
                 </div>
                 <div id="genderError" class="val_error textError"></div>
                 <div class="divSpace">
-                    <label for="phone1" class="star label">Phone1</label>
-                    <br>
+                    <label for="phone1" class="star labelText">Phone1</label>
+                    <div id="phone1Error" class="val_error textError"></div>
                     <div class="divPhone1">
-                        <input class="input" type="number" id="phone1" name="phone1" placeholder="Phone1..">
+                        <input class="inputField" type="number" id="phone1" name="phone1" placeholder="Phone1..">
                         <button type="button" id="addPhone">+</button>
                     </div>
                 </div>
-                <div id="phone1Error" class="val_error textError"></div>
+                
 
                 <div class="divSpace">
-                    <label for="country" class="star label">Country</label>
+                    <label for="country" class="star labelText">Country</label>
                     <br>
                     <div style="display:block">
                         <select id="country">
                             <option value="Select">Select</option>
                             <option value="India">India</option>
-                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
                             <option value="USA">USA</option>
                         </select>
                     </div>
@@ -90,41 +105,41 @@
                 <div id="countryError" class="val_error textError"></div>
 
                 <div class="divSpace">
-                    <label for="state" class="star label">State</label>
+                    <label for="state" class="star labelText">State</label>
                     <br>
                     <div style="display:block">
                         <select id="state">
-                            <option value="Select">Select</option>
-                            <option value="odisha">Odisha</option>
-                            <option value="jharkhand">Jharkhand</option>
-                            <option value="bihar">Bihar</option>
+                            <option id="selectState" value="Select">Select</option>
+                            <option id="state1" value="Odisha">Odisha</option>
+                            <option id="state2" value="Jharkhand">Jharkhand</option>
+                            <option id="state3" value="Bihar">Bihar</option>
                         </select>
                     </div>
                 </div>
                 <div id="stateError" class="val_error textError"></div>
 
                 <div class="divSpace">
-                    <label for="city" class="star label">City</label>
+                    <label for="city" class="star labelText">City</label>
                     <br>
-                    <input class="input" type="text" id="city" name="city" placeholder="City..">
+                    <input class="inputField" type="text" id="city" name="city" placeholder="City..">
                 </div>
                 <div id="cityError" class="val_error textError"></div>
 
                 <div class="divSpace">
-                    <label for="pin" class="star label">PIN</label>
+                    <label for="pin" class="star labelText">PIN</label>
                     <br>
-                    <input class="input" type="number" id="pin" name="pin" placeholder="Pin code..">
+                    <input class="inputField" type="number" id="pin" name="pin" placeholder="Pin code..">
                 </div>
                 <div id="pinError" class="val_error textError"></div>
 
                
 
                 <div class="divSpace">
-                    <label class="label" for="news">Subscribe news letter?</label>
+                    <label class="labelText" for="news">Subscribe news letter?</label>
                     <div id="newsCheckBox"><input type="checkbox" id="news" name="news"></div>
                 </div>
 
-                <h3 id="h3">Verify captcha to proceed.</h3>
+                <h3 id="verifyCaptchaHeading">Verify captcha to proceed.</h3>
                 <div class="divCaptcha">
                     <div class="captcha"><span id="number1"></span><span id="operator"></span><span id=number2></span></div>
                     <img id="captchaImage" src="captcha.png" alt="Refresh Captcha" onclick="captchaGeneration()">
@@ -135,53 +150,46 @@
                     <div id="captchaMessage"></div>
                 </div>
                 <br>
-                <button id="submitButton" type="button" value="submit"><b>Submit</b></button>
-                
-                <div id="divAnimate">
-                    Registration Successful!
-                </div>
+                <button id="submitButton" type="submit" value="submit"><b>Submit</b></button>
             </div>
 
             <div id="divRight">
 
-                <label for="lastName" class="label">Last Name</label>
+                <label for="lastName" class="labelText">Last Name</label>
                 <br>
-                <input class="input" type="text" id="lastName" name="lastName" placeholder="Your last name..">
+                <input class="inputField" type="text" id="lastName" name="lastName" placeholder="Your last name..">
+                <div id="lastNameError" class="val_error textError"></div>
 
                 <div id="aadharMargin"> 
-                    <label for="aadhar" class="star label">Aadhar number</label>
+                    <label for="aadhar" class="star labelText">Aadhar number</label>
                     <br>
-                    <input class="input" type="number" id="aadhar" name="aadhar" placeholder="Aadhar Number..">
+                    <input class="inputField" type="number" id="aadhar" name="aadhar" placeholder="Aadhar Number..">
                 </div>
                 <div id="aadharError" class="val_error textError"></div>
 
                 <div class="divSpace">
-                    <label for="confirmPassword" class="star label">Confirm Password</label>
+                    <label for="confirmPassword" class="star labelText">Confirm Password</label>
                     <br>
-                    <input class="input" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password..">
+                    <input class="inputField" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password..">
                 </div>
                 <div id="confirmPasswordError" class="val_error textError"></div>
 
                 <div class="divAddress1Space">
-                    <label for="address1" class="star label">Address1</label>
-                    <br>
+                    <label for="address1" class="star labelText">Address1</label>
+                    <div id="address1Error" class="val_error textError"></div>
                     <div class="divAddress1">
-                        <textarea class="input" type="text" id="address1" name="address1" placeholder="First Address.."></textarea>
+                        <textarea class="inputField" type="text" id="address1" name="address1" placeholder="First Address.."></textarea>
                         <button type="button" id="addAddress">+</button>
                     </div>
                 </div>
-                <div id="address1Error" class="val_error textError"></div>
-
-
-                <!-- <div id="address2Margin">
-                <label for="address2" class="label">Address2</label>
-                <br>
-                <textarea class="input" type="text" id="address2" name="address2" placeholder="Second Address.."></textarea>
-                </div> -->
+                
             </div>
 
         </form>
     </div>
     <script type="text/javascript" src="jqueryAssgnt2.js"></script>
+    <script type="text/javascript" src="captcha.js"></script>
+    <script type="text/javascript" src="validateInputFields.js"></script>
+    <script type="text/javascript" src="userImage.js"></script>
 </body>
 </html>

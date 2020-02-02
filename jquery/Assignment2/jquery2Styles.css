@@ -1,11 +1,11 @@
 #heading{
     color: black;
     text-shadow:2px 2px 2px rgb(221, 216, 216);
-    margin-left: 200px;
+    margin-left: 214px;
     position: absolute;
     margin-top: auto;
   }
-  .input, select {
+  .inputField, select {
     width: 300px;
     padding: 10px 10px;
     margin: 8px 0;
@@ -15,14 +15,16 @@
     border-radius: 4px;
     box-sizing: border-box;
     border-style: outset;
-    background-color: rgba(181, 245, 247, 0.952);
+    /* background-color: rgba(181, 245, 247, 0.952); */
     box-shadow: 3px 3px 5px rgb(190, 242, 243);
+    background-image: linear-gradient(rgba(225, 247, 248, 0.952),rgba(193, 246, 248, 0.952));
   }
-  .input:hover,#state:hover,#country:hover,.divCaptcha:hover{
-    background-color: rgb(165, 248, 250);
+  .inputField:hover,#state:hover,#country:hover,.divCaptcha:hover{
+    /* background-color: rgb(165, 248, 250); */
     box-shadow: 5px 5px 12px rgb(181, 230, 231);
+    background-image: linear-gradient(rgba(217, 248, 250, 0.952),rgba(180, 246, 248, 0.952));
   }
-  .label{
+  .labelText{
     color:black;
     text-shadow:1px 0px 1px grey;
     letter-spacing: 1px;
@@ -62,7 +64,7 @@
   }
   #removePhone{
     color: black;
-    background-color: rgb(206, 197, 197);
+    background-color: rgb(243, 67, 67);
     font-size: 16px;
     margin-left: 8px;
     padding: 6px 12px;
@@ -72,13 +74,10 @@
     height: 34px;
     text-align: center;
     box-shadow: 1px 1px 4px grey;
-    /* background-image: url('cross1.png');
-    background-repeat: no-repeat;
-    background-size: contain; */
   }
   #removeAddress{
     color: black;
-    background-color: rgb(206, 197, 197);
+    background-color: rgb(243, 67, 67);
     font-size: 16px;
     margin-left: 8px;
     margin-top:10px;
@@ -90,9 +89,6 @@
     height: 34px;
     text-align: center;
     box-shadow: 1px 1px 4px grey;
-    /* background-image: url('cross1.png');
-    background-repeat: no-repeat;
-    background-size: contain; */
   }
   #crossImage{
     height: 15px;
@@ -101,7 +97,7 @@
     margin-top: -7px;
     margin-left: -7px;
   }
-  #h3{
+  #verifyCaptchaHeading{
     color:red;
     font-size: large;
     font-weight: bold;
@@ -111,8 +107,7 @@
     background-color: rgb(240, 246, 248);
     padding: 10px;
     border: 1px solid black;
-    margin-left: 200px;
-    margin-right: 450px;
+    margin-left: 214px;
     margin-top: 45px;
     position: absolute;
     width: 850px;
@@ -162,9 +157,17 @@
     height: 125px;
     width: 339px;
   }
-  .val_error{
+.val_error{
     color:red;
   }
+#phone1Error{
+  margin-left: 3px;
+  margin-top: 53px;
+}
+#address1Error{
+  margin-left: 3px;
+  margin-top: 82px;
+}
   .star::after{
     content:"*";
     color:red;
@@ -172,6 +175,9 @@
 #address1,.additionalAddress{
       height:70px;
     }
+.divOptionalSpace{
+  margin-top: 12px;
+}
 .optionalAddress{
     height:70px;
 }
@@ -214,7 +220,7 @@
     /* display: none; */
     visibility: hidden;
     width: 420px;
-    background-color:rgb(160, 217, 253);
+    background-color:rgb(222, 240, 252);
     color: rgb(27, 24, 24);
     text-align: center;
     border-radius: 7px;
@@ -243,10 +249,6 @@
   #captchaMessage{
     font-weight: bold;
   }
-  /* #verifyButton{
-    background-color: rgb(10, 214, 10);
-    font-weight:600;
-  } */
   #divWelcome{
     background-color: rgba(67, 83, 224, 0.98);
     border-radius: 11px;
@@ -260,31 +262,12 @@
     border-style: outset;
     font-weight:900;
     position: absolute;
-    margin-left: 310px;
-    margin-top: -63px;
+    margin-left: 270px;
+    margin-top: -109px;
     text-align: center;
     font-size: 33px;
     padding-top: 30px;
     color:black;
-  }
-  #divAnimate{
-    background-color: rgba(67, 83, 224, 0.897);
-    border-radius: 15px;
-    padding: 8px;
-    width: 33%;
-    height: 107px;
-    box-shadow: 3px 5px 30px rgba(60, 74, 199, 0.897);
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-style: outset;
-    font-weight:900;
-    position: absolute;
-    margin-left: 178px;
-    margin-top: -134px;
-    text-align: center;
-    font-size: 20px;
-    padding-top: 38px;
   }
   #news{
     width:25px;
