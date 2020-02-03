@@ -8,6 +8,8 @@ function validateInputFields()
         window.alert("Please enter the data in the required feilds.");
     }
 
+    //Input fields validation.
+    
     var namePattern=/[?.=*\d]+/;
     if((namePattern.test($.trim($("#firstName").val())))===true)
     {
@@ -25,6 +27,7 @@ function validateInputFields()
     else{
         checkLastName=true;
     }
+
 
 
     var emailpattern=/^([a-z A-Z 0-9\. -]+)@([a-z A-Z]+)\.([a-z]{2,10})$/;
@@ -45,8 +48,6 @@ function validateInputFields()
     else{
         checkPhone=true;
     }
-
-    var phonePattern=/(?=.*[a-z])(?=.*[A-Z])/;
 
     if($.trim(($("#aadhar").val())).length!==12 && ($.trim($("#aadhar").val())!==""))
         {
@@ -114,7 +115,7 @@ function validateInputFields()
         checkConfirmPassword=true;
     }
 
-    
+    //Error messages on empty fields.
     if($.trim($("#firstName").val())==="")
     {
         $("#firstNameError").text("First name required!");
@@ -196,6 +197,7 @@ function clearFields(count)
     $("#pin").val("");
     $("input[type='checkbox']").prop('checked',false);
 
+    //Clear additional phone and address fields.
     var i=0;
     for(i;i<count;i++)
     {

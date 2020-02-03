@@ -11,7 +11,7 @@
     <title>Registration Page</title>
 </head>
 
-<body>
+<body id="backgroundImage">
     <div ><img id="imageMindfire" src="mindfire.jpg" alt="Mindfire image"></div>
 
     <!-- Image upload -->
@@ -25,7 +25,7 @@
         <div class="fileUploadSection-content">
           <img class="fileUploadImage" src="#" alt="your image" />
           <div class="imageTitle">
-            <button type="button" onclick="removeUpload()" class="removeImage">Reset <span class="image-title">Uploaded Image</span></button>
+            <button id="userImageButton" type="button" onclick="removeUpload()" class="removeImage">Reset <span class="image-title">Uploaded Image</span></button>
           </div>
         </div>
     </div>
@@ -145,9 +145,6 @@
                     <div class="captcha"><span id="number1"></span><span id="operator"></span><span id=number2></span></div>
                     <img id="captchaImage" src="captcha.png" alt="Refresh Captcha" onclick="captchaGeneration()">
                     <input type="text" id="answer" placeholder="Answer">
-                    <!-- <div class="captchaButton">
-                    <button id="verifyButton" onclick="captchaVerify(); return false;">Verify Captcha</button>
-                    </div> -->
                     <div id="captchaMessage"></div>
                 </div>
                 <br>
@@ -189,25 +186,41 @@
 
         </form>
     </div>
-    <div id="employeeDetails">Employee Details:</div>
+    <!-- <div id="employeeDetails">Employee Details:</div> -->
     <form id="formEmployeeSpacing">
         <div id="divEmployeeMain">
             <div id="divEmployeeAnimate">
                 Registration Successful!
             </div>
             <div id="divEmployeeLeft">
-                <div class="divEmployeeSpace"><label class="lblAttribute">Name:</label><div class="divData"><label class="lblData" id="nameData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Email Address:</label><div class="divData"><label class="lblData" id="emailData"></label class="lblData"></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">PAN:</label><div class="divData"><label class="lblData" id="panData"></label class="lblData"></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Aadhar number:</label><div class="divData"><label class="lblData" id="aadharData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Gender:</label><div class="divData"><label class="lblData" id="genderData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Phone Number:</label><div class="divData"><label class="lblData" id="phone1Data"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">First Address:</label><div class="divData"><label class="lblData" id="address1Data"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id="countryData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id="stateData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id="cityData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id="pinData"></label></div></div>
-                <div class="divEmployeeSpace"><label class="lblAttribute">Subscribed News Letter:</label><div class="divEmployeeNews"><label class="lblData" id="newsData"></label></div></div>
+                <fieldset id="fieldsetName">
+                    <legend class="legendStyle">Name</legend>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Name:</label><div class="divData"><label class="lblData" id="nameData"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Email Address:</label><div class="divData"><label class="lblData" id="emailData"></label class="lblData"></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">PAN:</label><div class="divData"><label class="lblData" id="panData"></label class="lblData"></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Aadhar number:</label><div class="divData"><label class="lblData" id="aadharData"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Gender:</label><div class="divData"><label class="lblData" id="genderData"></label></div></div>
+                </fieldset>
+                <fieldset id="fieldsetContact">
+                    <legend class="legendStyle">Contact</legend class="legendStyle">
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Primary Contact:</label><div class="divData"><label class="lblData" id="phone1Data"></label></div></div>
+                    <div id="divAdditionalPhone" class="divEmployeeSpace"><label class="lblAttribute">Additional Contacts:</label><div class="divData"><label class="lblData" id="additionalPhonesData"></label></div></div>
+                </fieldset>
+                <fieldset id="fieldsetAddress">
+                    <legend class="legendStyle">Address</legend class="legendStyle">
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Primary Address:</label><div class="divData"><label class="lblData" id="address1Data"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id="countryData"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id="stateData"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id="cityData"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id="pinData"></label></div></div>
+                    <div id="divAdditionalAddress" class="divEmployeeSpace"><label class="lblAttribute">Additional Address:</label><div class="divData"><label class="lblData" id="additionalAddressData"></label></div></div>
+                </fieldset>
+
+                <fieldset id="fieldsetNews">
+                    <legend class="legendStyle">News</legend class="legendStyle">
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Subscribed News Letter:</label><div class="divEmployeeNews"><label class="lblData" id="newsData"></label></div></div>
+                </fieldset>
+
                 
                 
                 

@@ -15,12 +15,10 @@
     border-radius: 4px;
     box-sizing: border-box;
     border-style: outset;
-    /* background-color: rgba(181, 245, 247, 0.952); */
     box-shadow: 3px 3px 5px rgb(190, 242, 243);
     background-image: linear-gradient(rgba(225, 247, 248, 0.952),rgba(193, 246, 248, 0.952));
   }
   .inputField:hover,#state:hover,#country:hover,.divCaptcha:hover{
-    /* background-color: rgb(165, 248, 250); */
     box-shadow: 5px 5px 12px rgb(181, 230, 231);
     background-image: linear-gradient(rgba(217, 248, 250, 0.952),rgba(180, 246, 248, 0.952));
   }
@@ -56,7 +54,6 @@
     margin-top: 12px;
     margin-left: 8px;
     border-style: outset;
-    /* text-shadow: 1px 1px 2px rgb(71, 71, 71); */
     width: 36px;
     height: 34px;
 
@@ -194,21 +191,21 @@
     box-sizing: border-box;
     border-style: outset;
   }
-  .captcha{
+.captcha{
     border-radius: 5px;
     background-color: rgb(181, 144, 216);
     padding: 7px;
     border: 1px solid black;
     width:24%;
   }
-  #captchaImage{
+#captchaImage{
     width:40px;
     height:40px;
     position: absolute;
     margin-left: 80px;
     margin-top: -36px;
   }
-  .passwordHelper{
+.passwordHelper{
     width:30px;
     height:30px;
     position: absolute;
@@ -216,7 +213,7 @@
     margin-left: 95px;
     border-radius: 50%;
   }
-  .passwordPolicy{
+.passwordPolicy{
     /* display: none; */
     visibility: hidden;
     width: 420px;
@@ -231,11 +228,11 @@
     margin-top: -120px;
     margin-left: 130px;
   }
-  .passwordHelper:hover + .passwordPolicy{
+.passwordHelper:hover + .passwordPolicy{
     /* display: block; */
     visibility: visible;
   }
-  #answer{
+#answer{
     width: 130px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -246,10 +243,10 @@
     border-style: outset;
     box-shadow:0 1px 2px inset;
   }
-  #captchaMessage{
+#captchaMessage{
     font-weight: bold;
   }
-  #divWelcome{
+#divWelcome{
     background-color: rgba(67, 83, 224, 0.98);
     border-radius: 11px;
     padding: 8px;
@@ -269,7 +266,7 @@
     padding-top: 30px;
     color:black;
   }
-  #news{
+#news{
     width:25px;
     height:25px;
 }
@@ -279,10 +276,10 @@
 }
 #clearButton{
   color:black;
-    background-color:rgb(236, 38, 38);
-    font-size: 16px;
-    margin: 4px 2px;
-    padding: 10px 20px;
-    border-style: outset;
+  background-color:rgb(236, 38, 38);
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 20px;
+  border-style: outset;
 
 }

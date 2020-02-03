@@ -18,6 +18,7 @@
     padding-top: 38px;
   }
 #employeeDetails{
+    width:246px;
     font-size: 23px;
     position: absolute;
     margin-top: 0px;
@@ -27,16 +28,16 @@
 }
 #divEmployeeMain{
     border-radius: 5px;
-    background-color: rgb(240, 246, 248);
+    background-color: #e1f1f7;
     padding: 10px;
     border: 1px solid black;
     margin-left: 261px;
     margin-right: 450px;
-    margin-top: 45px;
+    margin-top: 170px;
     position: absolute;
     width: 750px;
-    height: 700px;
-    box-shadow: 3px 1px 20px grey;
+    height: auto;
+    box-shadow: 14px 14px 27px #7ebfd4;
 }
 .lblAttribute{
     letter-spacing: 1px;
@@ -50,8 +51,8 @@
 }
 .divData{
     /* position:absolute; */
-    margin-left: 162px;
-    margin-top: -21px;
+    margin-left: 222px;
+    margin-top: -20px;
 }
 #formEmployeeSpacing{
     margin:20px;
@@ -74,4 +75,40 @@
 .divEmployeeNews{
     margin-left: 241px;
     margin-top: -21px;
+}
+#fieldsetName{
+    padding-right: 282px;
+    margin-left: 20px;
+    margin-top: 49px;
+    border:2px solid rgb(68, 66, 66);
+    background-color: #d7f0f8;
+    border-style: outset;
+}
+#fieldsetContact{
+    padding-right: 308px;
+    margin-left: 20px;
+    margin-top: 49px;
+    border:2px solid rgb(68, 66, 66);
+    background-color: #d7f0f8;
+    border-style: outset;
+}#fieldsetAddress{
+    padding-right: 246px;
+    margin-left: 20px;
+    margin-top: 49px;
+    border:2px solid rgb(68, 66, 66);
+    background-color: #d7f0f8;
+    border-style: outset;
+}#fieldsetNews{
+    padding-right: 358px;
+    margin-left: 20px;
+    margin-top: 49px;
+    border:2px solid rgb(68, 66, 66);
+    background-color: #d7f0f8;
+    border-style: outset;
+}
+.legendStyle{
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(67, 68, 65);
+    font-size:23px;
 }

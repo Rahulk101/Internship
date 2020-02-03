@@ -23,7 +23,6 @@ var countAddress=1;
 
 $(document).ready(function(){
     captchaGeneration();
-    // $("#divpasswordPolicy").hide();
     $("#divEmployeeAnimate").hide();
     $("#employeeDetails").hide();
     $("#formEmployeeSpacing").hide();
@@ -44,9 +43,6 @@ $(document).ready(function(){
         captchaVerify();
         
         validateInputFields();
-        //  VALIDATION OF INPUT FIELDS
-        
-
     });
     $("#clearButton").click(function(){
         clearFields(count,totalAddress);
@@ -117,16 +113,6 @@ $(document).ready(function(){
             $("#phone1Error").text("");
         }
     }),
-    // $(".divPhone1 div input:eq("+(count-1)+")").blur(function(){
-    //     if(($(".divPhone1 div div:eq("+(count-1)+")").val()).length!==10)
-    //     {
-    //         if(($(".divPhone1 div input:eq("+(count-1)+")").val()).length!==10);
-    //         {
-    //             $(".divPhone1 div div:eq("+(count-1)+")").text("Enter correct digit phone number!");
-    //         }
-    //     }
-
-    // }),
     
     $("#pin").blur(function(){
         if($.trim($(this).val())===""){
@@ -192,7 +178,7 @@ $(document).ready(function(){
     });
 
 
-    // Validate all fields including captcha and display message if true.
+    // Validate all fields including captcha and display details of employee if true.
     $("#submitButton").on("click",function(e){
         e.preventDefault();
 
@@ -208,12 +194,6 @@ $(document).ready(function(){
             {
                 $(".divPhone1 div div:eq("+i+")").text("");
             }
-            // $(".divPhone1 div input:eq("+i+")").on("blur",function(){
-            //     if($(".divPhone1 div input:eq("+i+")").val()==="")
-            //     {
-            //         $(".divPhone1 div div:eq("+i+")").text("Enter phone!");
-            //     }
-            // });
         }
 
         //Validation of additional Address Fields.
@@ -238,10 +218,14 @@ $(document).ready(function(){
         checkEmail===true && checkPhone===true &&checkAnswer===true && checkCountry===true && checkState===true && 
         checkAadhar===true && checkPan===true && checkPin===true && checkLastName===true && checkFirstName===true)
         {
-            $("#Image").hide();
-            $("#imageUpload").hide();
+            $("#imageMindfire").hide();
+            $("#userImageButton").hide();//Hiding reset button of image
+            // $("#backgroundImage").css({'background-image':"url(backgroundImage.jfif)",'background-size':'contain','background-repeat':'no-repeat'});
+            $(".fileUploadImage").css({'margin-left':'-703px','position':'absolute','margin-top':'121px','max-width':'259px'});
             $("#heading").hide();
             $("#divMain").hide();
+
+            // $("#backgroundImage").attr("background-image","url("+backgroundImage.jfif+")");
 
             $("#employeeDetails").show();
             $("#formEmployeeSpacing").show();
@@ -259,12 +243,54 @@ $(document).ready(function(){
             $("#panData").text($("#pan").val());
             $("#aadharData").text($("#aadhar").val());
             $("#genderData").text($("input[type='radio']:checked").val());
+            var strPhone="";
+            var strAddress=""
+            var counterPhone=0;
+            var counterAddress=0;
+
+            //Getting Additional Phone Numbers.
+            if(count>0)
+            {
+                for(counterPhone;counterPhone<count;counterPhone++)
+                    {
+                        if(counterPhone!==(count-1))
+                        {
+                            strPhone=strPhone+$(".divPhone1 div input:eq("+counterPhone+")").val()+",";
+                        }
+                        else{
+                            strPhone=strPhone+$(".divPhone1 div input:eq("+counterPhone+")").val();
+                        }
+                    }
+            }
+            else{
+                $("#divAdditionalPhone").remove();
+            }
+
+            //Getting Additional Addresses.
+            if(totalAddress>0)
+            {
+                for(counterAddress;counterAddress<totalAddress;counterAddress++)
+                {
+                    if(counterAddress!==(count-1))
+                    {
+                        strAddress=strAddress+$(".divAddress1 div textarea:eq("+counterAddress+")").val()+",";
+                    }
+                    else{
+                        strAddress=strAddress+$(".divAddress1 div textarea:eq("+counterAddress+")").val();
+                    }
+                }
+            }
+            else{
+                $("#divAdditionalAddress").remove();
+            }
             $("#phone1Data").text($("#phone1").val());
+            $("#additionalPhonesData").text(strPhone);
             $("#countryData").text($("#country").val());
             $("#stateData").text($("#state").val());
             $("#cityData").text($("#city").val());
             $("#pinData").text($("#pin").val());
             $("#address1Data").text($("#address1").val());
+            $("#additionalAddressData").text(strAddress);
             if(($("input[type='checkbox']:checked").val()===undefined)===false)
             {
                 $("#newsData").text("Yes");
