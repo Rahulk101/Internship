@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="jquery2Styles.css">
     <link rel="stylesheet" type="text/css" href="userImage.css">
+    <link rel="stylesheet" type="text/css" href="employeeData.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Registration Page</title>
 </head>
-<style>
-
-</style>
 
 <body>
-    <div ><img id="Image" src="mindfire.jpg" alt="Mindfire banner"></div>
-    <div class="fileUploadSection">
+    <div ><img id="imageMindfire" src="mindfire.jpg" alt="Mindfire image"></div>
+
+    <!-- Image upload -->
+    <div id="imageUpload" class="fileUploadSection">
         <div class="imageUploadWrapper">
           <input class="fileUploadInput" type='file' onchange="readURL(this);" id="imageInput" accept="image/*" />
           <div class="dragtext">
@@ -29,6 +29,7 @@
           </div>
         </div>
     </div>
+
 
     <h1 id="heading"><b>Registration Form:</b></h1>
     <div id="divMain">
@@ -95,7 +96,7 @@
                     <br>
                     <div style="display:block">
                         <select id="country">
-                            <option value="Select">Select</option>
+                            <option id="selectCountry" value="Select">Select</option>
                             <option value="India">India</option>
                             <option value="Japan">Japan</option>
                             <option value="USA">USA</option>
@@ -151,6 +152,7 @@
                 </div>
                 <br>
                 <button id="submitButton" type="submit" value="submit"><b>Submit</b></button>
+                <button id="clearButton" type="button" ><b>Clear</b></button>
             </div>
 
             <div id="divRight">
@@ -187,6 +189,32 @@
 
         </form>
     </div>
+    <div id="employeeDetails">Employee Details:</div>
+    <form id="formEmployeeSpacing">
+        <div id="divEmployeeMain">
+            <div id="divEmployeeAnimate">
+                Registration Successful!
+            </div>
+            <div id="divEmployeeLeft">
+                <div class="divEmployeeSpace"><label class="lblAttribute">Name:</label><div class="divData"><label class="lblData" id="nameData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Email Address:</label><div class="divData"><label class="lblData" id="emailData"></label class="lblData"></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">PAN:</label><div class="divData"><label class="lblData" id="panData"></label class="lblData"></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Aadhar number:</label><div class="divData"><label class="lblData" id="aadharData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Gender:</label><div class="divData"><label class="lblData" id="genderData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Phone Number:</label><div class="divData"><label class="lblData" id="phone1Data"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">First Address:</label><div class="divData"><label class="lblData" id="address1Data"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id="countryData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id="stateData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id="cityData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id="pinData"></label></div></div>
+                <div class="divEmployeeSpace"><label class="lblAttribute">Subscribed News Letter:</label><div class="divEmployeeNews"><label class="lblData" id="newsData"></label></div></div>
+                
+                
+                
+            </div>
+        
+        </div>
+    </form>
     <script type="text/javascript" src="jqueryAssgnt2.js"></script>
     <script type="text/javascript" src="captcha.js"></script>
     <script type="text/javascript" src="validateInputFields.js"></script>

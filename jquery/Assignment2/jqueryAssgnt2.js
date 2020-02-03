@@ -24,6 +24,11 @@ var countAddress=1;
 $(document).ready(function(){
     captchaGeneration();
     // $("#divpasswordPolicy").hide();
+    $("#divEmployeeAnimate").hide();
+    $("#employeeDetails").hide();
+    $("#formEmployeeSpacing").hide();
+
+
     $("#divAnimate").hide();
     $("#divWelcome").hide();
     $("#divWelcome").fadeIn(2500);
@@ -42,6 +47,9 @@ $(document).ready(function(){
         //  VALIDATION OF INPUT FIELDS
         
 
+    });
+    $("#clearButton").click(function(){
+        clearFields();
     });
     
     //  BLUR EVENTS
@@ -230,36 +238,40 @@ $(document).ready(function(){
         checkEmail===true && checkPhone===true &&checkAnswer===true && checkCountry===true && checkState===true && 
         checkAadhar===true && checkPan===true && checkPin===true && checkLastName===true && checkFirstName===true)
         {
-            
-            
-            localStorage.setItem("email",$("#email").val());
+            $("#Image").hide();
+            $("#imageUpload").hide();
+            $("#heading").hide();
+            $("#divMain").hide();
+
+            $("#employeeDetails").show();
+            $("#formEmployeeSpacing").show();
+            $("#divEmployeeAnimate").fadeIn(2200);
+            $("#divEmployeeAnimate").fadeOut(3500);
+
             if(($.trim($("#lastName").val())!==""))
             {
-                localStorage.setItem("name",$("#firstName").val()+"  "+$("#lastName").val());
+                $("#nameData").text($("#firstName").val()+" "+$("#lastName").val());
             }
             else{
-                localStorage.setItem("name",$("#firstName"));
+                $("#nameData").text($("#firstName").val());
             }
-            localStorage.setItem("pan",$("#pan").val());
-            localStorage.setItem("aadhar",$("#aadhar").val());
-            // localStorage.setItem("password",$("#password").val());
-            localStorage.setItem("gender",$("input[type='radio']:checked").val());
-            localStorage.setItem("phone1",$("#phone1").val());
-            localStorage.setItem("address1",$("#address1").val());
-            localStorage.setItem("country",$("#country").val());
-            localStorage.setItem("state",$("#state").val());
-            localStorage.setItem("city",$("#city").val());
-            localStorage.setItem("pin",$("#pin").val());
+            $("#emailData").text($("#email").val());
+            $("#panData").text($("#pan").val());
+            $("#aadharData").text($("#aadhar").val());
+            $("#genderData").text($("input[type='radio']:checked").val());
+            $("#phone1Data").text($("#phone1").val());
+            $("#countryData").text($("#country").val());
+            $("#stateData").text($("#state").val());
+            $("#cityData").text($("#city").val());
+            $("#pinData").text($("#pin").val());
+            $("#address1Data").text($("#address1").val());
             if(($("input[type='checkbox']:checked").val()===undefined)===false)
             {
-                localStorage.setItem("news","Yes");
+                $("#newsData").text("Yes");
             }
             else{
-                localStorage.setItem("news","No");
+                $("#newsData").text("No");
             }
-            
-
-            $('form').unbind('submit').submit();
         }
         
 

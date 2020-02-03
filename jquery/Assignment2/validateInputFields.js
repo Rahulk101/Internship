@@ -177,3 +177,22 @@ function validateInputFields()
         
     }
 }
+function clearFields()
+{
+    $("#firstName").val("");
+    $("#lastName").val("");
+    $("#email").val("");
+    $("#pan").val("");
+    $("#aadhar").val("");
+    $("#pan").val("");
+    $("#password").val("");
+    $("#confirmPassword").val("");
+    $("input[type='radio']").prop("checked",false);
+    $("#phone1").val("");
+    $("#address1").val("");
+    $("#selectCountry").val("Select");
+    $("#selectState").val("Select");
+    $("#city").val("");
+    $("#pin").val("");
+    $("input[type='checkbox']").prop('checked',false)
+}

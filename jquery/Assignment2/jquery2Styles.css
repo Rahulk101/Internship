@@ -151,7 +151,7 @@
   #aadharMargin{
       margin-top:128px;
   }
-  #Image{
+  #imageMindfire{
     margin-left: 520px;
     position: static;
     height: 125px;
@@ -276,4 +276,13 @@
 #newsCheckBox{
   margin-left: 201px;
   margin-top: -26px;
+}
+#clearButton{
+  color:black;
+    background-color:rgb(236, 38, 38);
+    font-size: 16px;
+    margin: 4px 2px;
+    padding: 10px 20px;
+    border-style: outset;
+
 }
