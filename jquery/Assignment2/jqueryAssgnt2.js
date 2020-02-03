@@ -49,7 +49,7 @@ $(document).ready(function(){
 
     });
     $("#clearButton").click(function(){
-        clearFields();
+        clearFields(count,totalAddress);
     });
     
     //  BLUR EVENTS

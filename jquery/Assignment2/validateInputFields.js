@@ -177,7 +177,7 @@ function validateInputFields()
         
     }
 }
-function clearFields()
+function clearFields(count)
 {
     $("#firstName").val("");
     $("#lastName").val("");
@@ -194,5 +194,17 @@ function clearFields()
     $("#selectState").val("Select");
     $("#city").val("");
     $("#pin").val("");
-    $("input[type='checkbox']").prop('checked',false)
+    $("input[type='checkbox']").prop('checked',false);
+
+    var i=0;
+    for(i;i<count;i++)
+    {
+        if($(".divPhone1 div input:eq("+i+")").val(""));
+    }
+
+    var j=0;
+    for(j;j<totalAddress;j++)
+    {
+        if($(".divAddress1 div textarea:eq("+j+")").val(""));
+    }
 }
