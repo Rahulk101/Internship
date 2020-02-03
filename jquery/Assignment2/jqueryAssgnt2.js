@@ -18,6 +18,8 @@ var countPhone=1;
 var removePhone=1;
 var removeAddress=1;
 var totalAddress=0;
+var checkAdditionalPhone=0;
+var checkAdditionalAddress=0;
 var count=0;
 var countAddress=1;
 
@@ -188,11 +190,18 @@ $(document).ready(function(){
         {
             if($(".divPhone1 div input:eq("+i+")").val().length!==10)
             {
-                $(".divPhone1 div div:eq("+i+")").text("Enter valid number!");
+                if($.trim($(".divPhone1 div input:eq("+i+")").val())==="")
+                {
+                    $(".divPhone1 div div:eq("+i+")").text("Enter phone number!");
+                }
+                else{
+                    $(".divPhone1 div div:eq("+i+")").text("Enter valid number!");
+                }
             }
             else
             {
                 $(".divPhone1 div div:eq("+i+")").text("");
+                checkAdditionalPhone=checkAdditionalPhone+1;
             }
         }
 
@@ -206,6 +215,7 @@ $(document).ready(function(){
             }
             else{
                 $(".divAddress1 div div:eq("+j+")").text("");
+                checkAdditionalAddress=checkAdditionalAddress+1;
             }
         }
 
@@ -216,7 +226,8 @@ $(document).ready(function(){
         ($.trim($("#address1").val())!=="") &&($.trim($("#city").val())!=="") && ($("#state").val()!=="") && 
         ($("#country").val()!=="") && ($("#aadhar").val()!=="") && ($("#pan").val()!=="") && checkPassword===true && checkConfirmPassword===true && 
         checkEmail===true && checkPhone===true &&checkAnswer===true && checkCountry===true && checkState===true && 
-        checkAadhar===true && checkPan===true && checkPin===true && checkLastName===true && checkFirstName===true)
+        checkAadhar===true && checkPan===true && checkPin===true && checkLastName===true && checkFirstName===true &&
+        checkAdditionalPhone===count && checkAdditionalAddress===totalAddress)
         {
             $("#imageMindfire").hide();
             $("#userImageButton").hide();//Hiding reset button of image
