@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="jquery2Styles.css">
-    <link rel="stylesheet" type="text/css" href="userImage.css">
-    <link rel="stylesheet" type="text/css" href="employeeData.css">
+    <link rel="stylesheet" type="text/css" href="styles/jquery2Styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/userImage.css">
+    <link rel="stylesheet" type="text/css" href="styles/employeeData.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Registration Page</title>
 </head>
 
 <body id="backgroundImage">
-    <div ><img id="imageMindfire" src="mindfire.jpg" alt="Mindfire image"></div>
+    <div ><img id="imageMindfire" src="images/mindfire.jpg" alt="Mindfire image"></div>
 
     <!-- Image upload -->
     <div id="imageUpload" class="fileUploadSection">
@@ -67,7 +67,7 @@
                 <div id="passwordError" class="val_error textError"></div>
 
                 <div id="iconPosition">
-                    <img class="passwordHelper" src="question1.jpg" alt="password policy">
+                    <img class="passwordHelper" src="images/question1.jpg" alt="password policy">
                     <span class="passwordPolicy"><b>Password must be of at least 8 characters including at 
                     least- one Upper and one Lower case letter,one number and one special character(like- !@#$*&).
                     </b></span>
@@ -143,7 +143,7 @@
                 <h3 id="verifyCaptchaHeading">Verify captcha to proceed.</h3>
                 <div class="divCaptcha">
                     <div class="captcha"><span id="number1"></span><span id="operator"></span><span id=number2></span></div>
-                    <img id="captchaImage" src="captcha.png" alt="Refresh Captcha" onclick="captchaGeneration()">
+                    <img id="captchaImage" src="images/captcha.png" alt="Refresh Captcha" onclick="captchaGeneration()">
                     <input type="text" id="answer" placeholder="Answer">
                     <div id="captchaMessage"></div>
                 </div>
@@ -228,9 +228,9 @@
         
         </div>
     </form>
-    <script type="text/javascript" src="jqueryAssgnt2.js"></script>
-    <script type="text/javascript" src="captcha.js"></script>
-    <script type="text/javascript" src="validateInputFields.js"></script>
-    <script type="text/javascript" src="userImage.js"></script>
+    <script type="text/javascript" src="scripts/jqueryAssgnt2.js"></script>
+    <script type="text/javascript" src="scripts/captcha.js"></script>
+    <script type="text/javascript" src="scripts/validateInputFields.js"></script>
+    <script type="text/javascript" src="scripts/userImage.js"></script>
 </body>
 </html>

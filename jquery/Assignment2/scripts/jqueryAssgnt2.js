@@ -319,7 +319,7 @@ $(document).ready(function(){
     $("#addPhone").on("click",function(){
         countPhone=countPhone+1;
         var phoneId="phone"+countPhone;
-        $("#addPhone").after('<div class="divOptionalSpace"><input class="inputField" type="number"  placeholder="Additional number.."></input><button id="removePhone" type="button"><img id="crossImage" src="cross.png"></button><br><div class="val_error textError"></div></div>');
+        $("#addPhone").after('<div class="divOptionalSpace"><input class="inputField" type="number"  placeholder="Additional number.."></input><button id="removePhone" type="button"><img id="crossImage" src="images/cross.png"></button><br><div class="val_error textError"></div></div>');
         $(".divPhone1 div input:first").attr("id","phone"+phoneId).attr("name",phoneId);
         count=countPhone-removePhone;
 
@@ -336,7 +336,7 @@ $(document).ready(function(){
     $("#addAddress").click(function(){
         countAddress=countAddress+1;
         var addressId="address"+countAddress;
-        $("#addAddress").after('<div class="divOptionalSpace"><textarea class="inputField additionalAddress" type="number" placeholder="Additional address.."></textarea><button id="removeAddress" type="button"><img id="crossImage" src="cross.png"></button><br><div class="val_error textError"></div></div>');
+        $("#addAddress").after('<div class="divOptionalSpace"><textarea class="inputField additionalAddress" type="number" placeholder="Additional address.."></textarea><button id="removeAddress" type="button"><img id="crossImage" src="images/cross.png"></button><br><div class="val_error textError"></div></div>');
         $(".divAddress1 div textarea:first").attr("id","address"+addressId).attr("name","address"+addressId);
         totalAddress=countAddress-removeAddress;
 
