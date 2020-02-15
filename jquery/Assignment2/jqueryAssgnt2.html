@@ -33,7 +33,7 @@
 
     <h1 id="heading"><b>Registration Form:</b></h1>
     <div id="divMain">
-        <form name="Registration" method="post" action="file:///D:/Internship/jquery/Assignment2/employeeData.html">
+        <form name="Registration" method="post">
             <div id="divWelcome">
                 Welcome!
             </div>
@@ -83,56 +83,66 @@
                 <div id="genderError" class="val_error textError"></div>
                 <div class="divSpace">
                     <label for="phone1" class="star labelText">Phone1</label>
-                    <div id="phone1Error" class="val_error textError"></div>
+                    <div id="phoneError1" class="val_error textError"></div>
                     <div class="divPhone1">
-                        <input class="inputField" type="number" id="phone1" name="phone1" placeholder="Phone1..">
+                        <input class="inputField additionalPhone" type="number" id="phone1" name="phone1" placeholder="Phone1..">
                         <button type="button" id="addPhone">+</button>
                     </div>
                 </div>
+
+                <div class="divFullAddress">
+                    <div class="divSpace">
+                        <label for="address1" class="star labelText"> Primary Address</label>
+                        <div class="divAddress">
+                            <textarea class="inputField additionalAddress" type="text" id="address1" name="address1" placeholder="First Address.."></textarea>
+                            <button type="button" id="addAddress">+</button>
+                        </div>
+                    </div>
+                    <div id="addressError1" class="val_error textError"></div>
                 
 
-                <div class="divSpace">
-                    <label for="country" class="star labelText">Country</label>
-                    <br>
-                    <div style="display:block">
-                        <select id="country">
-                            <option id="selectCountry" value="Select">Select</option>
-                            <option value="India">India</option>
-                            <option value="Japan">Japan</option>
-                            <option value="USA">USA</option>
-                        </select>
+                    <div class="divSpace">
+                        <label for="country1" class="star labelText">Country</label>
+                        <br>
+                        <div style="display:block">
+                            <select class="countryChange" id="country1">
+                                <option selected value="select">Select</option>
+                                <option value="India">India</option>
+                                <option value="Japan">Japan</option>
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div id="countryError" class="val_error textError"></div>
+                    <div id="countryError1" class="val_error textError"></div>
 
-                <div class="divSpace">
-                    <label for="state" class="star labelText">State</label>
-                    <br>
-                    <div style="display:block">
-                        <select id="state">
-                            <option id="selectState" value="Select">Select</option>
-                            <option id="state1" value="Odisha">Odisha</option>
-                            <option id="state2" value="Jharkhand">Jharkhand</option>
-                            <option id="state3" value="Bihar">Bihar</option>
-                        </select>
+                    <div class="divCitySpace">
+                        <label for="city1" class="star labelText">City</label>
+                        <br>
+                        <input class="inputField cityValue" type="text" id="city1" name="city" placeholder="City..">
                     </div>
-                </div>
-                <div id="stateError" class="val_error textError"></div>
+                    <div id="cityError1" class="val_error textError cityError"></div>
 
-                <div class="divSpace">
-                    <label for="city" class="star labelText">City</label>
-                    <br>
-                    <input class="inputField" type="text" id="city" name="city" placeholder="City..">
-                </div>
-                <div id="cityError" class="val_error textError"></div>
+                    <div class="divPinSpace">
+                        <label for="pin1" class="star labelText">PIN</label>
+                        <br>
+                        <input class="inputField pinValue" type="number" id="pin1" name="pin" placeholder="Pin code..">
+                    </div>
+                    <div id="pinError1" class="val_error textError pinError"></div>
 
-                <div class="divSpace">
-                    <label for="pin" class="star labelText">PIN</label>
-                    <br>
-                    <input class="inputField" type="number" id="pin" name="pin" placeholder="Pin code..">
+                    <div class="divSpace">
+                        <label for="state1" class="star labelText">State</label>
+                        <br>
+                        <div style="display:block">
+                            <select class="stateChange" id="state1">
+                                <option value="select" selected>Select</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Bihar">Bihar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="stateError1" class="val_error textError"></div>
                 </div>
-                <div id="pinError" class="val_error textError"></div>
-
                
 
                 <div class="divSpace">
@@ -148,7 +158,7 @@
                     <div id="captchaMessage"></div>
                 </div>
                 <br>
-                <button id="submitButton" type="submit" value="submit"><b>Submit</b></button>
+                <button id="submitButton" type="button" value="submit"><b>Submit</b></button>
                 <button id="clearButton" type="button" ><b>Clear</b></button>
             </div>
 
@@ -173,14 +183,7 @@
                 </div>
                 <div id="confirmPasswordError" class="val_error textError"></div>
 
-                <div class="divAddress1Space">
-                    <label for="address1" class="star labelText">Address1</label>
-                    <div id="address1Error" class="val_error textError"></div>
-                    <div class="divAddress1">
-                        <textarea class="inputField" type="text" id="address1" name="address1" placeholder="First Address.."></textarea>
-                        <button type="button" id="addAddress">+</button>
-                    </div>
-                </div>
+                
                 
             </div>
 
@@ -202,29 +205,25 @@
                     <div class="divEmployeeSpace"><label class="lblAttribute">Gender:</label><div class="divData"><label class="lblData" id="genderData"></label></div></div>
                 </fieldset>
                 <fieldset id="fieldsetContact">
-                    <legend class="legendStyle">Contact</legend class="legendStyle">
-                    <div class="divEmployeeSpace"><label class="lblAttribute">Primary Contact:</label><div class="divData"><label class="lblData" id="phone1Data"></label></div></div>
+                    <legend class="legendStyle">Contact</legend>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Primary Contact:</label><div class="divData"><label class="lblData" id="phoneData1"></label></div></div>
                     <div id="divAdditionalPhone" class="divEmployeeSpace"><label class="lblAttribute">Additional Contacts:</label><div class="divData"><label class="lblData" id="additionalPhonesData"></label></div></div>
                 </fieldset>
-                <fieldset id="fieldsetAddress">
-                    <legend class="legendStyle">Address</legend class="legendStyle">
-                    <div class="divEmployeeSpace"><label class="lblAttribute">Primary Address:</label><div class="divData"><label class="lblData" id="address1Data"></label></div></div>
-                    <div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id="countryData"></label></div></div>
-                    <div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id="stateData"></label></div></div>
-                    <div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id="cityData"></label></div></div>
-                    <div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id="pinData"></label></div></div>
-                    <div id="divAdditionalAddress" class="divEmployeeSpace"><label class="lblAttribute">Additional Address:</label><div class="divData"><label class="lblData" id="additionalAddressData"></label></div></div>
+                <fieldset class="fieldsetAddress">
+                    <legend class="legendStyle"> Primary Address</legend>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Address:</label><div class="divData"><label class="lblData" id="addressData1"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id="countryData1"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id="stateData1"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id="cityData1"></label></div></div>
+                    <div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id="pinData1"></label></div></div>
+                    
                 </fieldset>
 
+                <div id="divAdditionalAddress"></div>
                 <fieldset id="fieldsetNews">
-                    <legend class="legendStyle">News</legend class="legendStyle">
+                    <legend class="legendStyle">News</legend>
                     <div class="divEmployeeSpace"><label class="lblAttribute">Subscribed News Letter:</label><div class="divEmployeeNews"><label class="lblData" id="newsData"></label></div></div>
                 </fieldset>
-
-                
-                
-                
-            </div>
         
         </div>
     </form>

@@ -1,16 +1,26 @@
-function validateInputFields()
+var checkName=false;
+var passwordLength=false;
+var checkPassword=false;
+var checkConfirmPassword=false;
+var checkEmail=false;
+var checkPan=false;
+var checkAadhar=false;
+var checkPhone=false;
+var checkAnswer=false;
+var checkGender=false;
+function validateInputFields(totalPhone,totalAddress)
 {
-    if( ($.trim($("#firstName").val())==="") || ($.trim($("#email").val())==="") || ($.trim($("#password").val())=== "")||
-    ($.trim($("#confirmPassword").val())==="") ||($("input[type='radio']:checked").val()===null) ||
-    ($.trim($("#phone1").val())==="") || ($.trim($("#address1").val())==="") ||($.trim($("#city").val())==="") ||
-    ($("#state").val()==="Select") || ($("#country").val()==="Select"))                                
-    { 
-        window.alert("Please enter the data in the required feilds.");
-    }
 
-    //Input fields validation.
-    
     var namePattern=/[?.=*\d]+/;
+    var emailpattern=/^([a-z A-Z 0-9\. -]+)@([a-z A-Z]+)\.([a-z]{2,10})$/;
+    var panData=/(?=.*\d)(?=.*[A-Z])/;
+    var passwordData=/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&]){8}/;
+
+    //INPUT FIELDS VALIDATION.
+
+    //Name validation.
+    var checkFirstName=false;
+    var checkLastName=false;
     if((namePattern.test($.trim($("#firstName").val())))===true)
     {
         $("#firstNameError").text("Provide a valid name!");
@@ -25,12 +35,20 @@ function validateInputFields()
         checkLastName=false;
     }
     else{
+        $("#lastNameError").text("");
         checkLastName=true;
+    }
+    if(checkFirstName===true && checkLastName===true)
+    {
+        checkName=true;
+    }
+    else{
+        checkName=false;
     }
 
 
 
-    var emailpattern=/^([a-z A-Z 0-9\. -]+)@([a-z A-Z]+)\.([a-z]{2,10})$/;
+    //Email Validation.
     if((emailpattern.test($.trim($("#email").val())) === false) && $("#email").val().length>0)
         {
             $("#emailError").text("Provide valid Email id!");
@@ -40,15 +58,7 @@ function validateInputFields()
         checkEmail=true;
     }
 
-    if($.trim($("#phone1").val()).length<10 && ($.trim($("#phone1").val())!==""))
-        {
-            $("#phone1Error").text("Enter a 10 digit valid phone number!");
-            checkPhone=false;
-        }
-    else{
-        checkPhone=true;
-    }
-
+    //Aadhar Validation.
     if($.trim(($("#aadhar").val())).length!==12 && ($.trim($("#aadhar").val())!==""))
         {
             $("#aadharError").text("Enter a valid Aadhar!");
@@ -58,7 +68,7 @@ function validateInputFields()
         checkAadhar=true;
     }
 
-    var panData=/(?=.*\d)(?=.*[A-Z])/;
+    //Pan Validation.
     if(($.trim($("#pan").val()).length)!==10)
     {
         $("#panError").text("Enter PAN number of correct length!");
@@ -73,16 +83,7 @@ function validateInputFields()
         checkPan=true;
     }
 
-    if(($.trim($("#pin").val()).length)!==6)
-    {
-        $("#pinError").text("Enter a valid PIN of 6 digits!");
-        checkPin=false;
-    }
-    else{
-        checkPin=true;
-    }
-
-    var passwordData=/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&]){8,}/;
+    //Password Validation.
     if($.trim($("#password").val()).length<8 && ($.trim($("#password").val())!==""))
         {
             $("#passwordError").text("Password must be at least 8 characters!");
@@ -100,10 +101,6 @@ function validateInputFields()
         }
         checkPassword=false;
     }
-    else{
-        checkConfirmPassword=true;
-    }
-
 
     if($.trim($("#password").val())!== ($.trim($("#confirmPassword").val())) )
         {
@@ -119,94 +116,180 @@ function validateInputFields()
     if($.trim($("#firstName").val())==="")
     {
         $("#firstNameError").text("First name required!");
+        checkName=false;
     }
+    else if(checkLastName===true)
+    {
+        checkName=true;
+    }
+
     if($.trim($("#email").val())==="")
     {
         $("#emailError").text("Email required!");
+        checkEmail=false;
     }
+    else{
+        checkEmail=true;
+    }
+
+    if(($("input[type='radio']:checked").val())===undefined){
+        $("#genderError").text("Gender required!");
+        checkGender=false;
+    }
+    else{
+        $("#genderError").text("");
+        checkGender=true;
+    }
+
     if($.trim($("#pan").val())==="")
     {
         $("#panError").text("PAN required!");
+        checkPan=false;
     }
+    else{
+        checkPan=true;
+    }
+
     if($.trim($("#aadhar").val())==="")
     {
         $("#aadharError").text("Aadhar number required!");
+        checkAadhar=false;
     }
+    else{
+        checkAadhar=true;
+    }
+
     if($.trim($("#password").val())==="")
     {
         $("#passwordError").text("Password required!");
+        checkPassword=false;
     }
+    else{
+        checkPassword=true;
+    }
+
     if($.trim($("#confirmPassword").val())==="")
     {
         $("#confirmPasswordError").text("Confirm your Password!");
-    }
-    if($("#gender").val()==="")
-    {
-        $("#genderError").text("Gender required!");
-    }
-    if($.trim($("#phone1").val())==="")
-    {
-        $("#phone1Error").text("Phone1 required!");
-    }
-    if($.trim($("#address1").val())==="")
-    {
-        $("#address1Error").text("Address1 required!");
-    }
-    if($.trim($("#city").val())==="")
-    {
-        $("#cityError").text("City required!");
-    }
-    if($.trim($("#pin").val())==="")
-    {
-        $("#pinError").text("PIN required!");
-    }
-    if($("#state").val()==="Select")
-    {
-        $("#stateError").text("State required!");
-        checkState=false;
+        checkConfirmPassword=false;
     }
     else{
-        checkState=true;
+        checkConfirmPassword=true;
     }
-    if($("#country").val()==="Select")
+
+
+    //Error meassage on address field(s).
+    var i=1;
+    var addressCountTrue=0;
+    for(i;i<totalAddress;i++)
     {
-        $("#countryError").text("Country required!");
-        checkCountry=false;
-    }
-    else{
-        checkCountry=true;
+        var addressId="#address"+i;
+        var addressErrorId="#addressError"+i;
+        var checkAddress=false;
+
+        var countryId="#country"+i;
+        var countryErrorId="#countryError"+i;
+        var checkCountry=false;
+
+        var stateId="#state"+i;
+        var stateErrorId="#stateError"+i;
+        var checkState=false;
+
+        var cityId="#city"+i;
+        var cityErrorId="#cityError"+i;
+        var checkCity=false;
+
+        var pinId="#pin"+i;
+        var pinErrorId="#pinError"+i;
+        var checkPin=false;
+
         
-    }
-}
-function clearFields(count)
-{
-    $("#firstName").val("");
-    $("#lastName").val("");
-    $("#email").val("");
-    $("#pan").val("");
-    $("#aadhar").val("");
-    $("#pan").val("");
-    $("#password").val("");
-    $("#confirmPassword").val("");
-    $("input[type='radio']").prop("checked",false);
-    $("#phone1").val("");
-    $("#address1").val("");
-    $("#selectCountry").val("Select");
-    $("#selectState").val("Select");
-    $("#city").val("");
-    $("#pin").val("");
-    $("input[type='checkbox']").prop('checked',false);
 
-    //Clear additional phone and address fields.
-    var i=0;
-    for(i;i<count;i++)
-    {
-        if($(".divPhone1 div input:eq("+i+")").val(""));
+        if($.trim($(addressId).val())==="")
+        {
+            $(addressErrorId).text("Enter Address!");
+            checkAddress=false;
+        }
+        else{
+            checkAddress=true;
+        }
+
+        if($(countryId).val()==="select")
+        {
+            $(countryErrorId).text("Select Country!");
+            checkCountry=false;
+        }
+        else
+        {
+            checkCountry=true;
+        }
+
+        if($(stateId).val()==="select")
+        {
+            $(stateErrorId).text("Select State!");
+            checkState=false;
+        }
+        else{
+            checkState=true;
+        }
+
+        if($.trim($(cityId).val())==="")
+        {
+            $(cityErrorId).text("Enter City!");
+            checkCity=false;
+        }
+        else{
+            checkCity=true;
+        }
+        if($.trim($(pinId).val())==="")
+        {
+            $(pinErrorId).text("Enter PIN!");
+            checkPin=false;
+        }
+        else{
+            checkPin=true;
+        }
+        
+
+        if(checkAddress===true && checkCountry===true && checkState===true && checkCity===true &&
+            checkPin===true)
+        {
+            addressCountTrue=addressCountTrue+1;
+        }
     }
 
-    var j=0;
-    for(j;j<totalAddress;j++)
+    //Error messages on empty phone field(s).
+    var j=1;
+    var phoneCountTrue=0;
+    for(j;j<totalPhone;j++)
     {
-        if($(".divAddress1 div textarea:eq("+j+")").val(""));
+        var phoneId="#phone"+j;
+        var phoneErrorId="#phoneError"+j;
+        var phoneCheck=false;
+
+        if($.trim($(phoneId).val())==="")
+        {
+            $(phoneErrorId).text("Enter Phone number!");
+            phoneCheck ==false;
+        }
+        else if($.trim($(phoneId).val()).length!==10)
+        {
+            $(phoneErrorId).text("Enter Valid number!");
+            phoneCheck=false;
+        }
+        else{
+            phoneCheck=true;
+            phoneCountTrue=phoneCountTrue+1;
+        }
+    }
+
+
+    //Returning 'true' on entering valid data in address and phone field(s) else 'false'.
+    if((phoneCountTrue===(totalPhone-1)) && (addressCountTrue===(totalAddress-1)))
+    {
+        return true;
+    }
+    else{
+        return false;
     }
 }

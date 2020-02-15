@@ -77,32 +77,33 @@
     margin-top: -21px;
 }
 #fieldsetName{
-    padding-right: 282px;
+    width: 604px;
     margin-left: 20px;
+    border: 2px solid rgb(68, 66, 66);
     margin-top: 49px;
-    border:2px solid rgb(68, 66, 66);
     background-color: #d7f0f8;
     border-style: outset;
 }
 #fieldsetContact{
-    padding-right: 308px;
+    width: 604px;
     margin-left: 20px;
+    border: 2px solid rgb(68, 66, 66);
     margin-top: 49px;
-    border:2px solid rgb(68, 66, 66);
     background-color: #d7f0f8;
     border-style: outset;
-}#fieldsetAddress{
-    padding-right: 246px;
+}
+.fieldsetAddress{
+    width: 604px;
     margin-left: 20px;
+    border: 2px solid rgb(68, 66, 66);
     margin-top: 49px;
-    border:2px solid rgb(68, 66, 66);
     background-color: #d7f0f8;
     border-style: outset;
 }#fieldsetNews{
-    padding-right: 358px;
+    width: 604px;
     margin-left: 20px;
+    border: 2px solid rgb(68, 66, 66);
     margin-top: 49px;
-    border:2px solid rgb(68, 66, 66);
     background-color: #d7f0f8;
     border-style: outset;
 }

@@ -1,27 +1,12 @@
-var checkFirstName=false;
-var checkLastName=false;
-var passwordLength=true;
-var checkPassword=false;
-var checkConfirmPassword=false;
-var checkEmail=false;
-var checkPan=false;
-var checkAadhar=false;
-var checkPhone=false;
-var checkAnswer=false;
-var checkState=false;
-var checkCountry=false;
-var checkPin=false;
-var checkPhoneType=false;
-var cloneAddress=0;
-var countryValue="";
 var countPhone=1;
 var removePhone=1;
-var removeAddress=1;
+var addAddressCount=0;
+var removeAdditionalAddress=0;
 var totalAddress=0;
 var checkAdditionalPhone=0;
 var checkAdditionalAddress=0;
-var count=0;
-var countAddress=1;
+var countTotalPhone=0;
+var addAdditionalAddress=1;
 
 $(document).ready(function(){
     captchaGeneration();
@@ -35,21 +20,32 @@ $(document).ready(function(){
     $("#divWelcome").fadeIn(2500);
     $("#divWelcome").fadeOut(2300);
 
-    $("#country").click(function(){
-        countryValue=$("#country").val();
-        $("#selectState").text("Select");
+    
+    
+
+    //Country wise state list
+    var countries={India:["Odisha","Jharkhand","Bihar"],Japan:["Hokkaido","Tohuku","Kanto"],USA:["California","Florida","Texas"]};
+
+    $('body').on('change',".countryChange",function(){ 
+        var country = $(this).val();
+        var countryId=$(this).attr("id");
+        var position=countryId.substring(7,8);
+        var stateId='#state'+position+'';
+        if(country==="select"){
+
+            $(stateId).append("<option>Select</option>");
+        }else{
+            
+            $(stateId).empty();
+            $(stateId).append("<option value='select'>Select</option>");
+
+            var len = countries[country].length;
+            for(var i=0;i<len;i++) {
+                $(stateId).append("<option value="+countries[country][i]+">"+ countries[country][i] +"</option>");
+            }
+        }
     });
 
-    
-    $("#submitButton").click(function(){
-        captchaVerify();
-        
-        validateInputFields();
-    });
-    $("#clearButton").click(function(){
-        clearFields(count,totalAddress);
-    });
-    
     //  BLUR EVENTS
     $("#firstName").blur(function(){
         if($.trim($(this).val())===""){
@@ -99,150 +95,107 @@ $(document).ready(function(){
             $("#confirmPasswordError").text("Confirm your Password!");
         }
     });
-    $("#submitButton").click(function(){
-        if(($("input[type='radio']:checked").val())===null){
-            $("#genderError").text("Gender required!");
+
+    $("body").on("blur",".additionalAddress",function(){
+        var addressId=$(this).attr("id");
+        var position=addressId.substring(7,8);
+        var addressErrorId="#addressError"+position;
+        if($.trim($(this).val())==="")
+        {
+            $(addressErrorId).text("Enter Address!");
         }
         else{
-            $("#genderError").text("");
+            $(addressErrorId).text("");
         }
-    }),
-    $("#phone1").blur(function(){
-        if($.trim($(this).val())===""){
-            $("#phone1Error").text("Phone1 required!");
-        }
-        else{
-            $("#phone1Error").text("");
-        }
-    }),
-    
-    $("#pin").blur(function(){
-        if($.trim($(this).val())===""){
-            $("#pinError").text("PIN required!");
+    });
+    $("body").on("blur",".countryChange",function(){
+        var countryId=$(this).attr("id");
+        var position=countryId.substring(7,8);
+        var countryErrorId="#countryError"+position;
+        if($.trim($(this).val())==="select")
+        {
+            $(countryErrorId).text("Select Country!");
         }
         else{
-            $("#pinError").text("");
+            $(countryErrorId).text("");
         }
-    }),
-    $("#address1").blur(function(){
-        if($.trim($(this).val())===""){
-            $("#address1Error").text("Address1 required!");
-        }
-        else{
-            $("#address1Error").text("");
-        }
-    }),
-    $("#city").blur(function(){
-        if($.trim($(this).val())===""){
-            $("#cityError").text("City required!");
+    });
+    $("body").on("blur",".stateChange",function(){
+        var stateId=$(this).attr("id");
+        var position=stateId.substring(5,6);
+        var stateErrorId="#stateError"+position;
+        if($.trim($(this).val())==="select")
+        {
+            $(stateErrorId).text("Select State!");
         }
         else{
-            $("#cityError").text("");
+            $(stateErrorId).text("");
         }
-    }),
-    $("#state").blur(function(){
-        if($(this).val()==="Select"){
-            $("#stateError").text("State required!");
-        }
-        else{
-            $("#stateError").text("");
-        }
-    }),
-    $("#country").blur(function(){
-        
-        if($(this).val()==="Select"){
-            $("#countryError").text("Country required!");
+    });
+    $("body").on("blur",".pinValue",function(){
+        var pinId=$(this).attr("id");
+        var position=pinId.substring(3,4);
+        var pinErrorId="#pinError"+position;
+        if($.trim($(this).val())==="")
+        {
+            $(pinErrorId).text("Enter PIN!");
         }
         else{
-            $("#countryError").text("");
-            if(countryValue!=="")
-            {
-                $("#selectState").text("Select");
-            }
-            if(countryValue==="India")
-            {
-                $("#state1").text("Odisha");
-                $("#state2").text("Jharkhand");
-                $("#state3").text("Bihar");
-            }
-            else if(countryValue==="Japan")
-            {
-                $("#state1").text("Hokkaido");
-                $("#state2").text("Tohuku");
-                $("#state3").text("Kanto");   
-            }
-            else{
-                $("#state1").text("California");
-                $("#state2").text("Florida");
-                $("#state3").text("Texas");
-            }
+            $(pinErrorId).text("");
+        }
+    });
+    $("body").on("blur",".cityValue",function(){
+        var cityId=$(this).attr("id");
+        var position=cityId.substring(4,5);
+        var cityErrorId="#cityError"+position;
+        if($.trim($(this).val())==="")
+        {
+            $(cityErrorId).text("Enter City!");
+        }
+        else{
+            $(cityErrorId).text("");
         }
     });
 
+    $("body").on("blur",".additionalPhone",function(){
+        var phoneId=$(this).attr("id");
+        var position=phoneId.substring(5,6);
+        var phoneErrorId="#phoneError"+position;
+        if($.trim($(this).val())==="")
+        {
+            $(phoneErrorId).text("Enter Phone number!");
+        }
+        else{
+            $(phoneErrorId).text("");
+        }
+    });
 
     // Validate all fields including captcha and display details of employee if true.
-    $("#submitButton").on("click",function(e){
-        e.preventDefault();
+    $("#submitButton").on("click",function(){
+        captchaVerify();
+        var addressPhoneVerify=false;
+        var addressPhoneVerify=validateInputFields((countTotalPhone+2),(totalAddress+2));
 
-        //Validation of additional phone numbers.
-        var i=0;
-        for(i;i<count;i++)
-        {
-            if($(".divPhone1 div input:eq("+i+")").val().length!==10)
-            {
-                if($.trim($(".divPhone1 div input:eq("+i+")").val())==="")
-                {
-                    $(".divPhone1 div div:eq("+i+")").text("Enter phone number!");
-                }
-                else{
-                    $(".divPhone1 div div:eq("+i+")").text("Enter valid number!");
-                }
-            }
-            else
-            {
-                $(".divPhone1 div div:eq("+i+")").text("");
-                checkAdditionalPhone=checkAdditionalPhone+1;
-            }
-        }
-
-        //Validation of additional Address Fields.
-        var j=0;
-        for(j;j<totalAddress;j++)
-        {
-            if($(".divAddress1 div textarea:eq("+j+")").val()==="")
-            {
-                $(".divAddress1 div div:eq("+j+")").text("Enter your Address!");
-            }
-            else{
-                $(".divAddress1 div div:eq("+j+")").text("");
-                checkAdditionalAddress=checkAdditionalAddress+1;
-            }
-        }
 
         //Validation of all required data.
         if( ($.trim($("#firstName").val())!=="") && ($.trim($("#email").val())!=="") &&
         ($.trim($("#password").val())!=="") && ($.trim($("#confirmPassword").val())!=="") && 
-        (($("input[type='radio']:checked").val())!==null) && ($.trim($("#phone1").val())!=="") && 
-        ($.trim($("#address1").val())!=="") &&($.trim($("#city").val())!=="") && ($("#state").val()!=="") && 
-        ($("#country").val()!=="") && ($("#aadhar").val()!=="") && ($("#pan").val()!=="") && checkPassword===true && checkConfirmPassword===true && 
-        checkEmail===true && checkPhone===true &&checkAnswer===true && checkCountry===true && checkState===true && 
-        checkAadhar===true && checkPan===true && checkPin===true && checkLastName===true && checkFirstName===true &&
-        checkAdditionalPhone===count && checkAdditionalAddress===totalAddress)
+        (($("input[type='radio']:checked").val())!==undefined) &&($("#aadhar").val()!=="") && checkPassword===true &&
+        checkConfirmPassword===true && checkEmail===true && checkAnswer===true && checkGender===true && 
+        checkAadhar===true && checkPan===true && checkName===true && addressPhoneVerify===true)
         {
             $("#imageMindfire").hide();
             $("#userImageButton").hide();//Hiding reset button of image
-            // $("#backgroundImage").css({'background-image':"url(backgroundImage.jfif)",'background-size':'contain','background-repeat':'no-repeat'});
             $(".fileUploadImage").css({'margin-left':'-703px','position':'absolute','margin-top':'121px','max-width':'259px'});
             $("#heading").hide();
             $("#divMain").hide();
-
-            // $("#backgroundImage").attr("background-image","url("+backgroundImage.jfif+")");
 
             $("#employeeDetails").show();
             $("#formEmployeeSpacing").show();
             $("#divEmployeeAnimate").fadeIn(2200);
             $("#divEmployeeAnimate").fadeOut(3500);
 
+            //Getting the entered data and displaying in another div.
             if(($.trim($("#lastName").val())!==""))
             {
                 $("#nameData").text($("#firstName").val()+" "+$("#lastName").val());
@@ -255,16 +208,14 @@ $(document).ready(function(){
             $("#aadharData").text($("#aadhar").val());
             $("#genderData").text($("input[type='radio']:checked").val());
             var strPhone="";
-            var strAddress=""
             var counterPhone=0;
-            var counterAddress=0;
 
             //Getting Additional Phone Numbers.
-            if(count>0)
+            if(countTotalPhone>0)
             {
-                for(counterPhone;counterPhone<count;counterPhone++)
+                for(counterPhone;counterPhone<countTotalPhone;counterPhone++)
                     {
-                        if(counterPhone!==(count-1))
+                        if(counterPhone!==(countTotalPhone-1))
                         {
                             strPhone=strPhone+$(".divPhone1 div input:eq("+counterPhone+")").val()+",";
                         }
@@ -277,31 +228,14 @@ $(document).ready(function(){
                 $("#divAdditionalPhone").remove();
             }
 
-            //Getting Additional Addresses.
-            if(totalAddress>0)
-            {
-                for(counterAddress;counterAddress<totalAddress;counterAddress++)
-                {
-                    if(counterAddress!==(count-1))
-                    {
-                        strAddress=strAddress+$(".divAddress1 div textarea:eq("+counterAddress+")").val()+",";
-                    }
-                    else{
-                        strAddress=strAddress+$(".divAddress1 div textarea:eq("+counterAddress+")").val();
-                    }
-                }
-            }
-            else{
-                $("#divAdditionalAddress").remove();
-            }
-            $("#phone1Data").text($("#phone1").val());
+
+            $("#phoneData1").text($("#phone1").val());
             $("#additionalPhonesData").text(strPhone);
-            $("#countryData").text($("#country").val());
-            $("#stateData").text($("#state").val());
-            $("#cityData").text($("#city").val());
-            $("#pinData").text($("#pin").val());
-            $("#address1Data").text($("#address1").val());
-            $("#additionalAddressData").text(strAddress);
+            $("#countryData1").text($("#country1").val());
+            $("#stateData1").text($("#state1").val());
+            $("#cityData1").text($("#city1").val());
+            $("#pinData1").text($("#pin1").val());
+            $("#addressData1").text($("#address1").val());
             if(($("input[type='checkbox']:checked").val()===undefined)===false)
             {
                 $("#newsData").text("Yes");
@@ -309,6 +243,27 @@ $(document).ready(function(){
             else{
                 $("#newsData").text("No");
             }
+        }
+
+        //Displaying Additional Address Data
+        var a=2;
+        for(a;a<(totalAddress+2);a++)
+        {
+            var addAdditionalAddressData='<fieldset class="fieldsetAddress">'+
+                                            '<legend class="legendStyle">Address'+a+'</legend>'+
+                                            '<div class="divEmployeeSpace"><label class="lblAttribute">Address:</label><div class="divData"><label class="lblData" id='+"addressData"+a+'></label></div></div>'+
+                                            '<div class="divEmployeeSpace"><label class="lblAttribute">Country:</label><div class="divData"><label class="lblData" id='+"countryData"+a+'></label></div></div>'+
+                                            '<div class="divEmployeeSpace"><label class="lblAttribute">State:</label><div class="divData"><label class="lblData" id='+"stateData"+a+'></label></div></div>'+
+                                            '<div class="divEmployeeSpace"><label class="lblAttribute">City:</label><div class="divData"><label class="lblData" id='+"cityData"+a+'></label></div></div>'+
+                                            '<div class="divEmployeeSpace"><label class="lblAttribute">PIN:</label><div class="divData"><label class="lblData" id='+"pinData"+a+'></label></div></div>'+
+                                        '</fieldset>'
+            $("#divAdditionalAddress").last().append(addAdditionalAddressData);
+
+            $("#addressData"+a).text($('.divOptionalAddress:eq('+(a-2)+') textarea').val());
+            $("#countryData"+a).text($('.divOptionalAddress:eq('+(a-2)+') .countryChange').val());
+            $("#stateData"+a).text($('.divOptionalAddress:eq('+(a-2)+') .stateChange').val());
+            $("#pinData"+a).text($('.divOptionalAddress:eq('+(a-2)+') .pinValue').val());
+            $("#cityData"+a).text($('.divOptionalAddress:eq('+(a-2)+') .cityValue').val());
         }
         
 
@@ -319,32 +274,138 @@ $(document).ready(function(){
     $("#addPhone").on("click",function(){
         countPhone=countPhone+1;
         var phoneId="phone"+countPhone;
-        $("#addPhone").after('<div class="divOptionalSpace"><input class="inputField" type="number"  placeholder="Additional number.."></input><button id="removePhone" type="button"><img id="crossImage" src="images/cross.png"></button><br><div class="val_error textError"></div></div>');
-        $(".divPhone1 div input:first").attr("id","phone"+phoneId).attr("name",phoneId);
-        count=countPhone-removePhone;
+        var phoneField='<div class="divOptionalSpace divPhone">'+
+                            '<input class="inputField additionalPhone" type="number"  placeholder="Additional number.."></input><button class="removePhone" type="button"><img id="crossImage" src="images/cross.png"></button><br>'+
+                            '<div id='+"phoneError"+countPhone+' class="val_error textError"></div>'+
+                        '</div>'
+        $("#addPhone").after(phoneField);
+        
+        $(".divPhone1 div input:first").attr("id",phoneId).attr("name",phoneId);
+        countTotalPhone=countPhone-removePhone;
 
-        $("#removePhone").click(function(){
+        $(".removePhone").click(function(){
             $(this).parent().remove();
             removePhone=removePhone+1;
-            count=countPhone-removePhone;
+            countTotalPhone=countPhone-removePhone;
         });
     });
 
+    //Addition of extra Address Field.
+    $("#addAddress").on("click",function(){
+        addAdditionalAddress=addAdditionalAddress+1;
+        addAddressCount=addAddressCount+1;
+        totalAddress=addAddressCount-removeAdditionalAddress;
+        var additionalAddressField='<div class="divOptionalAddress">'+
+                                        '<div class="divSpace">'+
+                                            '<label for="address1" class="labelText">Address'+(addAddressCount+1)+'</label>'+
+                                            '<div class="divAddress">'+
+                                                '<textarea class="inputField additionalAddress" type="text" id='+"address"+addAdditionalAddress+' name="address1" placeholder="Additional Address.."></textarea>'+
+                                                '<button class="removeAddress" type="button"><img id="crossImage" src="images/cross.png"></button><br>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div id='+"addressError"+addAdditionalAddress+' class="val_error textError"></div>'+
     
 
-    //Addition of extra address fields.
-    $("#addAddress").click(function(){
-        countAddress=countAddress+1;
-        var addressId="address"+countAddress;
-        $("#addAddress").after('<div class="divOptionalSpace"><textarea class="inputField additionalAddress" type="number" placeholder="Additional address.."></textarea><button id="removeAddress" type="button"><img id="crossImage" src="images/cross.png"></button><br><div class="val_error textError"></div></div>');
-        $(".divAddress1 div textarea:first").attr("id","address"+addressId).attr("name","address"+addressId);
-        totalAddress=countAddress-removeAddress;
+                                        '<div class="divSpace">'+
+                                            '<label for='+"country"+addAdditionalAddress+' class="star labelText">Country</label>'+
+                                            '<br>'+
+                                            '<div style="display:block">'+
+                                                '<select class="countryChange" id='+"country"+addAdditionalAddress+'>'+
+                                                    '<option id="select" value="select">Select</option>'+
+                                                    '<option value="India">India</option>'+
+                                                    '<option value="Japan">Japan</option>'+
+                                                    '<option value="USA">USA</option>'+
+                                                '</select>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div id='+"countryError"+addAdditionalAddress+' class="val_error textError"></div>'+
 
-        $("#removeAddress").click(function(){
-            $(this).parent().remove();
-            removeAddress=removeAddress+1;
-            totalAddress=countAddress-removeAddress;
+                                        '<div class="divCitySpace">'+
+                                            '<label for='+"city"+addAdditionalAddress+' class="star labelText">City</label>'+
+                                            '<br>'+
+                                            '<input class="inputField cityValue" type="text" id='+"city"+addAdditionalAddress+' name="city" placeholder="City..">'+
+                                        '</div>'+
+                                        '<div id='+"cityError"+addAdditionalAddress+' class="val_error textError cityError"></div>'+
+
+                                        '<div class="divPinSpace">'+
+                                            '<label for='+"pin"+addAdditionalAddress+' class="star labelText">PIN</label>'+
+                                            '<br>'+
+                                            '<input class="inputField pinValue" type="number" id='+"pin"+addAdditionalAddress+' name="pin" placeholder="Pin code..">'+
+                                        '</div>'+
+                                        '<div id='+"pinError"+addAdditionalAddress+' class="val_error textError pinError"></div>'+
+
+                                        '<div class="divSpace">'+
+                                            '<label for='+"state"+addAdditionalAddress+' class="star labelText">State</label>'+
+                                            '<br>'+
+                                            '<div style="display:block">'+
+                                                '<select class="stateChange" id='+"state"+addAdditionalAddress+'>'+
+                                                    '<option value="select">Select</option>'+
+                                                    '<option value="Odisha">Odisha</option>'+
+                                                    '<option value="Jharkhand">Jharkhand</option>'+
+                                                    '<option value="Bihar">Bihar</option>'+
+                                                '</select>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div id='+"stateError"+addAdditionalAddress+' class="val_error textError"></div>'+
+                                    '</div>'
+        $(".divFullAddress").last().append(additionalAddressField);
+
+        $(".removeAddress").on("click",function(){
+            $(this).parent().parent().parent().remove();
+            removeAdditionalAddress=removeAdditionalAddress+1;
+            totalAddress=addAddressCount-removeAdditionalAddress;
         });
+        // $(".divFullAddress").first().append($(".divFullAddress").clone());
+        // $(".divFullAddress:eq("+num+") label:first").text("Additional Address");
+
     });
     
+    //Clear fields.
+    $("#clearButton").on("click",function(){
+        $("#firstName").val("");
+        $("#firstNameError").text("");
+
+        $("#lastName").val("");
+        $("#lastNameError").text("");
+
+        $("#email").val("");
+        $("#emailError").text("");
+
+        $("#pan").val("");
+        $("#panError").text("");
+
+        $("#aadhar").val("");
+        $("#aadharError").text("");
+
+        $("#pan").val("");
+        $("#panError").text("");
+
+        $("#password").val("");
+        $("#passwordError").text("");
+
+        $("#confirmPassword").val("");
+        $("#confirmPasswordError").text("");
+
+        $("input[type='radio']").prop("checked",false);
+
+        $("input[type='checkbox']").prop('checked',false);
+
+        $("#phone1").val("");
+        $("#phoneError1").text("");
+        $(".divPhone").remove();
+        
+        $("#address1").val("");
+        $("#addressError1").text("");
+        $("#country1").val("select");
+        $("#countryError1").text("");
+        $("#state1").val("select");
+        $("#stateError1").text("");
+        $("#pin1").val("");
+        $("#pinError1").text("");
+        $("#city1").val("");
+        $("#cityError1").text("");
+        $(".divOptionalAddress").remove();
+
+        $("#answer").val("");
+    });
 });
