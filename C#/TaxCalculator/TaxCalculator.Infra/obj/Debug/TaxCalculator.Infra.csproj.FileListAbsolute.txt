@@ -1,0 +1,5 @@
+C:\Users\mindfire\Documents\Visual Studio 2013\Projects\TaxCalculator\TaxCalculator.Infra\bin\Debug\TaxCalculator.Infra.dll
+C:\Users\mindfire\Documents\Visual Studio 2013\Projects\TaxCalculator\TaxCalculator.Infra\bin\Debug\TaxCalculator.Infra.pdb
+C:\Users\mindfire\Documents\Visual Studio 2013\Projects\TaxCalculator\TaxCalculator.Infra\obj\Debug\TaxCalculator.Infra.csprojResolveAssemblyReference.cache
+C:\Users\mindfire\Documents\Visual Studio 2013\Projects\TaxCalculator\TaxCalculator.Infra\obj\Debug\TaxCalculator.Infra.dll
+C:\Users\mindfire\Documents\Visual Studio 2013\Projects\TaxCalculator\TaxCalculator.Infra\obj\Debug\TaxCalculator.Infra.pdb

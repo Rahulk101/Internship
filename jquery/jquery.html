@@ -13,9 +13,9 @@
 </style>
 
 <body onload="captchaGeneration()">
-    <div ><img id="Image" src="mindfire.jpg" alt="Mindfire.jpg"></div>
+    <div ><img id="Image" src="mindfire.jpg" alt="Mindfire image"></div>
 
-    <h1 id="h1"><b>Registration Form:</b></h1>
+    <h1 id="heading"><b>Registration Form:</b></h1>
     <div id="maindiv">
         <form name="Registration" method="post">
             <div id="divWelcome">
@@ -25,21 +25,21 @@
                 <label for="firstName" class="star label">First Name</label>
                 <br>
                 <input class="input" type="text" id="firstName" name="firstName" placeholder="Your first name..">
-                <div id="firstNameError" class="val_error"></div>
+                <div id="firstNameError" class="val_error textError"></div>
 
                 <div class="divSpace"> 
                 <label for="email" class="star label">Email id</label>
                 <br>
                 <input class="input" type="text" id="email" name="email" placeholder="Email..">
                 </div>
-                <div id="emailError" class="val_error"></div>
+                <div id="emailError" class="val_error textError"></div>
 
                 <div class="divSpace">
                 <label for="password" class="star label">Password</label>
                 <br>
                 <input class="input" type="password" id="password" name="password" placeholder="Password..">
                 </div>
-                <div id="passwordError" class="val_error"></div>
+                <div id="passwordError" class="val_error textError"></div>
 
                 <div id="iconPosition">
                 <img class="passwordHelper" src="question1.jpg" alt="password policy">
@@ -54,7 +54,7 @@
                 <label class="lblRadio"><input type="radio" id="gender2" value="Female" name="option">Female</label>
                 <label class="lblRadio"><input type="radio" id="gender3" value="Other" name="option">Other</label>
                 </div>
-                <div id="genderError" class="val_error"></div>
+                <div id="genderError" class="val_error textError"></div>
                 <br>
 
                 <div class="divSpace">
@@ -62,21 +62,21 @@
                 <br>
                 <input class="input" type="number" id="phone1" name="phone1" placeholder="Phone1..">
                 </div>
-                <div id="phone1Error" class="val_error"></div>
+                <div id="phone1Error" class="val_error textError"></div>
 
                 <div class="divSpace">
                 <label for="address1" class="star label">Address1</label>
                 <br>
                 <input class="input" type="text" id="address1" name="address1" placeholder="First Address..">
                 </div>
-                <div id="address1Error" class="val_error"></div>
+                <div id="address1Error" class="val_error textError"></div>
 
                 <div class="divSpace">
                 <label for="city" class="star label">City</label>
                 <br>
                 <input class="input" type="text" id="city" name="city" placeholder="City..">
                 </div>
-                <div id="cityError" class="val_error"></div>
+                <div id="cityError" class="val_error textError"></div>
 
                 <div class="divSpace">
                 <label for="state" class="star label">State</label>
@@ -90,7 +90,7 @@
                     </select>
                 </div>
                 </div>
-                <div id="stateError" class="val_error"></div>
+                <div id="stateError" class="val_error textError"></div>
 
                 <div class="divSpace">
                 <label for="country" class="star label">Country</label>
@@ -104,15 +104,12 @@
                     </select>
                 </div>
                 </div>
-                <div id="countryError" class="val_error"></div>
+                <div id="countryError" class="val_error textError"></div>
 
                 <div class="divSpace">
-                <label for="news">Subscribe news letter?</label>
-                <br>
-                <label class="lblRadio"><input type="radio" id="news" name="news">Yes</label>
-                <label class="lblRadio"><input type="radio" id="news" name="news">No<br></label>
+                <label class="label" for="news">Subscribe news letter?</label>
+                <div id="newsCheckBox"><input type="checkbox" id="news" name="news"></div>
                 </div>
-                <div id="newsError" class="val_error"></div>
 
                 <h3 id="h3">Verify captcha to proceed.</h3>
                 <div class="divCaptcha">

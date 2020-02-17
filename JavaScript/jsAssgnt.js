@@ -32,7 +32,7 @@
     password.addEventListener('blur', passwordVerify, true);
     confirmPassword.addEventListener('blur', confirmPasswordVerify, true);
     phone1.addEventListener('blur', phone1Verify, true);
-    // gender.addEventListener('blur', genderVerify, true);
+    //gender.addEventListener('blur', genderVerify, true);
     address1.addEventListener('blur', address1Verify, true);
     state.addEventListener('blur', stateVerify, true);
     country.addEventListener('blur', countryVerify, true);
@@ -63,7 +63,7 @@ function reg()
             //alert("Enter a 10 digit valid phone number!");
         }
 
-    var passwordData=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)$/;
+    var passwordData=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.@#\$%&*\s)$/;
     if((password.value.length<8) && (password.value!==""))
         {
             passwordError.textContent="Password must be atleast 8 characters!";
@@ -84,13 +84,11 @@ function reg()
         }
 
     
+
+
     if(firstName.value == "")
     {
         firstNameError.textContent="First name required";
-    }
-    if(lastName.value == "")
-    {
-        lastNameError.textContent="Last name required";
     }
     if(email.value == "")
     {
@@ -104,9 +102,10 @@ function reg()
     {
         confirmPasswordError.textContent="Confirm your password";
     }
-    if(document.getElementById("lblGender").textContent=="")
+    if(!(document.getElementById("gender1").checked||
+    document.getElementById("gender2").checked||document.getElementById("gender3").checked))
     {
-        genderError.textContent="Phone1 required";
+        genderError.textContent="Gender required";
     }
     if(phone1.value == "")
     {
@@ -132,12 +131,6 @@ function reg()
 }
 
     
-
-
-
-
-
-
 
 
 function captchaGeneration()
@@ -273,7 +266,8 @@ function confirmPasswordVerify(){
     }
 }
 function genderVerify(){
-    if(document.getElementById("lblGender").textContent!=="")
+    if(document.getElementById("gender1").checked||
+    document.getElementById("gender2").checked||document.getElementById("gender3").checked)
     {
         genderError.innerHTML="";
         check=true;
